@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="Website icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+
+    <style>
+                body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #ee7e97;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .menu {
+            width: 250px;
+            height: 100vh;
+            background-color: #a30e3b;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 70px 20px 20px;
+            box-sizing: border-box;
+        }
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .menu-list li {
+            position: relative;
+        }
+        .menu-list li a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 250ms;
+            z-index: 2;
+        }
+        .menu-list:hover > li a:not(:hover) {
+            opacity: 0.3;
+        }
+        .menu-list li a::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 5vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 500px;
+            z-index: -1;
+            color: hsla(0, 0%, 0%, 0.496);
+            opacity: 0;
+            transition: 0.5s ease;
+            pointer-events: none;
+        }
+        .menu-list li a:hover::before {
+            opacity: 1;
+            letter-spacing: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 27px;
+        }
+        nav ul li a {
+            color: #fff; /* Text color for navigation links */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Adjust font size */
+            padding-bottom: 10px; /* Space for underline effect */
+            position: relative; /* Required for underline effect */
+            transition: all 0.5s; /* Smooth transition */
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0;
+            background: #000000;
+            height: 1px;
+            transition: all 0.5s;
+        }
+        nav ul li a:hover {
+            color: #000000;
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 100px 20px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            color: rgb(0, 0, 0);
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .character-section {
+            margin: 20px 0;
+        }
+        .character-card {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e6f7ff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .character-card h3 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .character-card p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .grammar-tips {
+            border: 2px solid #a20d3f;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #ffe6f2;
+            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.2);
+            margin-top: 20px;
+        }
+        .grammar-tips h3 {
+            color: #8c305e;
+            font-size: 1.5rem;
+        }
+        .grammar-tips p, .grammar-tips ul {
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .grammar-tips ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor </h1>
+        <nav>
+            <ul>
+                <li><a href="home(2).html">Home</a></li>
+                <li><a href="https://translate.google.co.jp/?hl=en&sl=en&tl=ja&op=translate">Translate 🔍</a></li>
+                <li><a href="anime(15).html">Anime</a></li>
+                <li><a href="quiz(16).html">Quiz</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+    <div class="menu">
+        <ul class="menu-list">
+            <li><a href="alphabets(3).html" data-text="Alphabets">Alphabets</a></li>
+            <li><a href="numbers(4).html" data-text="Numbers">Numbers</a></li>
+            <li><a href="professionrelation(5).html" data-text="Profession Relations">Profession and Relations</a></li>
+            <li><a href="monthseason(6).html" data-text="Months Seasons">Months and Seasons</a></li>
+            <li><a href="nature(7).html" data-text="Nature">Nature</a></li>
+            <li><a href="food(8).html" data-text="Food">Food</a></li>
+            <li><a href="country(9).html" data-text="Country">Country</a></li>
+            <li><a href="greetings(10).html" data-text="Greetings">Greetings</a></li>
+            <li><a href="partofspeech(11).html" data-text="Part of Speech">Part of Speech</a></li>
+            <li><a href="home(2).html" data-text="Grammar Tips">Grammar Tips</a></li>
+            <li><a href="conversation(13).html" data-text="Conversation">Conversation</a></li>
+            <li><a href="response(14).html" data-text="Response">Response</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Japanese Grammar Tips</h1>
+        <div class="grammar-tips">
+            <p>Japanese grammar has several unique features and rules that differ significantly from English. Here are some essential grammar tips to help you understand and use Japanese more effectively:</p>
+
+            <h4>Sentence Structure</h4>
+            <p><strong>Basic Sentence Order:</strong> Subject-Object-Verb (SOV)</p>
+            <p><em>Example:</em> 私はリンゴを食べます (わたしはりんごをたべます, Watashi wa ringo o tabemasu) - I eat an apple.</p>
+            <p><em>Explanation:</em> The subject (私, watashi), followed by the object (リンゴ, ringo), and finally the verb (食べます, tabemasu).</p>
+
+            <hr><h4>Particles</h4>
+            <ul>
+                <li><strong>は (wa):</strong> Topic marker.
+                    <p><em>Example:</em> 私は学生です (わたしはがくせいです, Watashi wa gakusei desu) - I am a student.</p>
+                </li>
+                <li><strong>が (ga):</strong> Subject marker.
+                    <p><em>Example:</em> 猫が好きです (ねこがすきです, Neko ga suki desu) - I like cats.</p>
+                </li>
+                <li><strong>を (o):</strong> Direct object marker.
+                    <p><em>Example:</em> 本を読みます (ほんをよみます, Hon o yomimasu) - I read a book.</p>
+                </li>
+                <li><strong>に (ni):</strong> Indicates location, time, or direction.
+                    <p><em>Example:</em> 学校に行きます (がっこうにいきます, Gakkou ni ikimasu) - I go to school.</p>
+                </li>
+                <li><strong>で (de):</strong> Indicates location of action or means.
+                    <p><em>Example:</em> バスで行きます (ばすでいきます, Basu de ikimasu) - I go by bus.</p>
+                </li>
+            </ul>
+
+            <hr><h4>Verbs</h4>
+            <p><strong>Verb Conjugation:</strong> Verbs change form to indicate tense, mood, and politeness.</p>
+            <ul>
+                <li><strong>Present/Future Affirmative:</strong> 
+                    <p><em>Example:</em> 食べます (たべます, tabemasu) - eat/will eat.</p>
+                </li>
+                <li><strong>Past Affirmative:</strong>
+                    <p><em>Example:</em> 食べました (たべました, tabemashita) - ate.</p>
+                </li>
+                <li><strong>Negative Form:</strong>
+                    <p><em>Example:</em> 食べません (たべません, tabemasen) - do not eat/will not eat.</p>
+                </li>
+                <li><strong>Past Negative:</strong>
+                    <p><em>Example:</em> 食べませんでした (たべませんでした, tabemasen deshita) - did not eat.</p>
+                </li>
+            </ul>
+            <p><strong>Verb Groups:</strong> Japanese verbs are categorized into three groups.</p>
+            <ul>
+                <li><strong>Group 1 (う-verbs, Godan Dōshi):</strong> 
+                    <p><em>Example:</em> 書く (かく, kaku) - to write.</p>
+                </li>
+                <li><strong>Group 2 (る-verbs, Ichidan Dōshi):</strong>
+                    <p><em>Example:</em> 食べる (たべる, taberu) - to eat.</p>
+                </li>
+                <li><strong>Group 3 (Irregular Verbs):</strong>
+                    <p><em>Example:</em> する (suru) - to do, 来る (くる, kuru) - to come.</p>
+                </li>
+            </ul>
+
+            <hr><h4>Adjectives</h4>
+            <p><strong>Adjective Types:</strong> There are two main types of adjectives.</p>
+            <ul>
+                <li><strong>い-Adjectives (い形容詞, i-keiyōshi):</strong>
+                    <p><em>Example:</em> 高い (たかい, takai) - high/tall.</p>
+                </li>
+                <li><strong>な-Adjectives (な形容詞, na-keiyōshi):</strong>
+                    <p><em>Example:</em> 静か (しずか, shizuka) - quiet.</p>
+                </li>
+            </ul>
+            <p><strong>Conjugation:</strong></p>
+            <ul>
+                <li><strong>い-Adjectives:</strong>
+                    <ul>
+                        <li>Present Affirmative: 新しい (あたらしい, atarashii) - new.</li>
+                        <li>Present Negative: 新しくない (あたらしくない, atarashikunai) - not new.</li>
+                        <li>Past Affirmative: 新しかった (あたらしかった, atarashikatta) - was new.</li>
+                        <li>Past Negative: 新しくなかった (あたらしくなかった, atarashikunakatta) - was not new.</li>
+                    </ul>
+                </li>
+                <li><strong>な-Adjectives:</strong>
+                    <ul>
+                        <li>Present Affirmative: 静かです (しずかです, shizuka desu) - is quiet.</li>
+                        <li>Present Negative: 静かではありません (しずかではありません, shizuka de wa arimasen) - is not quiet.</li>
+                        <li>Past Affirmative: 静かでした (しずかでした, shizuka deshita) - was quiet.</li>
+                        <li>Past Negative: 静かではありませんでした (しずかではありませんでした, shizuka de wa arimasen deshita) - was not quiet.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <hr><h4>Nouns and Pronouns</h4>
+            <p><strong>Noun Modifiers:</strong> Nouns can modify other nouns by placing them in front.</p>
+            <p><em>Example:</em> 日本語の先生 (にほんごのせんせい, Nihongo no sensei) - Japanese language teacher.</p>
+            <p><strong>Pronouns:</strong> Often omitted if the subject is clear from context.</p>
+            <p><em>Example:</em> (私は) 学生です ((わたしは) がくせいです, (Watashi wa) gakusei desu) - (I am) a student.</p>
+
+            <hr><h4>Questions</h4>
+            <p><strong>Forming Questions:</strong> Add か (ka) at the end of a statement.</p>
+            <p><em>Example:</em> あなたは学生ですか (あなたはがくせいですか, Anata wa gakusei desu ka) - Are you a student?</p>
+
+            <hr><h4>Negation</h4>
+            <p><strong>Negating Verbs and Adjectives:</strong></p>
+            <p><em>Example (Verb):</em> 食べません (たべません, tabemasen) - do not eat.</p>
+            <p><em>Example (い-Adjective):</em> 高くない (たかくない, takakunai) - not tall.</p>
+            <p><em>Example (な-Adjective):</em> 静かではありません (しずかではありません, shizuka de wa arimasen) - not quiet.</p>
+
+            <hr><h4>Politeness Levels</h4>
+            <p><strong>Politeness:</strong> Different levels of politeness in speech, from casual to formal.</p>
+            <ul>
+                <li><strong>Casual:</strong> 行く (いく, iku) - go.</li>
+                <li><strong>Polite:</strong> 行きます (いきます, ikimasu) - go.</li>
+                <li><strong>Honorific/Humble:</strong> いらっしゃる (irassharu) - go (honorific), 参る (まいる, mairu) - go (humble).</li>
+            </ul>
+
+            <hr><h4>Counters</h4>
+            <p><strong>Counters:</strong> Specific words used to count different types of objects.</p>
+            <ul>
+                <li><strong>Examples:</strong></li>
+                <li>本 (ほん, hon) - for long objects like books.</li>
+                <li>枚 (まい, mai) - for flat objects like paper.</li>
+                <li>人 (にん, nin) - for people.</li>
+            </ul>
+
+            <hr><h4>Tenses</h4>
+            <p><strong>Tenses:</strong> Verbs indicate time through conjugation.</p>
+            <ul>
+                <li><strong>Present/Future:</strong> 飲む (のむ, nomu) - drink/will drink.</li>
+                <li><strong>Past:</strong> 飲んだ (のんだ, nonda) - drank.</li>
+            </ul>
+
+            <hr><h4>Formality and Context</h4>
+            <p><strong>Formality:</strong> Choose the appropriate level of formality based on context and relationship.</p>
+            <ul>
+                <li><strong>Casual:</strong> Used among friends and family.</li>
+                <li><strong>Polite:</strong> Used in most daily interactions.</li>
+                <li><strong>Honorific/Humble:</strong> Used in formal settings and when showing respect.</li>
+            </ul>
+
+            <hr><h4>Relative Clauses</h4>
+            <p><strong>Relative Clauses:</strong> Placed before the noun they modify.</p>
+            <p><em>Example:</em> 私が昨日見た映画 (わたしがきのうみたえいが, Watashi ga kinō mita eiga) - The movie I watched yesterday.</p>
+
+            <hr><h4>Passive and Causative Forms</h4>
+            <p><strong>Passive and Causative Forms:</strong> Used to indicate passive actions or causation.</p>
+            <ul>
+                <li><strong>Passive:</strong> 食べられる (たべられる, taberareru) - be eaten.</li>
+                <li><strong>Causative:</strong> 食べさせる (たべさせる, tabesaseru) - make/let someone eat.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

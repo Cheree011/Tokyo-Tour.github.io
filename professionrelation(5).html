@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="Website icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #ee7e97;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .menu {
+            width: 250px;
+            height: 100vh;
+            background-color: #a30e3b;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 70px 20px 20px;
+            box-sizing: border-box;
+        }
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .menu-list li {
+            position: relative;
+        }
+        .menu-list li a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 250ms;
+            z-index: 2;
+        }
+        .menu-list:hover > li a:not(:hover) {
+            opacity: 0.3;
+        }
+        .menu-list li a::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 5vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 500px;
+            z-index: -1;
+            color: hsla(0, 0%, 0%, 0.496);
+            opacity: 0;
+            transition: 0.5s ease;
+            pointer-events: none;
+        }
+        .menu-list li a:hover::before {
+            opacity: 1;
+            letter-spacing: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 27px;
+        }
+        nav ul li a {
+            color: #fff; /* Text color for navigation links */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Adjust font size */
+            padding-bottom: 10px; /* Space for underline effect */
+            position: relative; /* Required for underline effect */
+            transition: all 0.5s; /* Smooth transition */
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0;
+            background: #000000;
+            height: 1px;
+            transition: all 0.5s;
+        }
+        nav ul li a:hover {
+            color: #000000;
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        
+        .content {
+            margin-left: 270px;
+            padding: 100px 20px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            color: rgb(0, 0, 0);
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .character-section {
+            margin: 20px 0;
+        }
+        .character-card {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e6f7ff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .character-card h3 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .character-card p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .profession,.relation{
+            font-size: 36px;
+            font-weight: bold;
+            color: #12a75b;
+        
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor </h1>
+        <nav>
+            <ul>
+                <li><a href="home(2).html">Home</a></li>
+                <li><a href="https://translate.google.co.jp/?hl=en&sl=en&tl=ja&op=translate">Translate 🔍</a></li>
+                <li><a href="anime(15).html">Anime</a></li>
+                <li><a href="quiz(16).html">Quiz</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+    <div class="menu">
+        <ul class="menu-list">
+            <li><a href="alphabets(3).html" data-text="Alphabets">Alphabets</a></li>
+            <li><a href="numbers(4).html" data-text="Numbers">Numbers</a></li>
+            <li><a href="home(2).html" data-text="Profession Relations">Profession and Relations</a></li>
+            <li><a href="monthseason(6).html" data-text="Months Seasons">Months and Seasons</a></li>
+            <li><a href="nature(7).html" data-text="Nature">Nature</a></li>
+            <li><a href="food(8).html" data-text="Food">Food</a></li>            
+            <li><a href="country(9).html" data-text="Country">Country</a></li>
+            <li><a href="greetings(10).html" data-text="Greetings">Greetings</a></li>
+            <li><a href="partofspeech(11).html" data-text="Part of Speech">Part of Speech</a></li>
+            <li><a href="grammartips(12).html" data-text="Grammar Tips">Grammar Tips</a></li>
+            <li><a href="conversation(13).html" data-text="Conversation">Conversation</a></li>
+            <li><a href="response(14).html" data-text="Response">Response</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="container">
+            <h1>Japanese Professions</h1>
+            <div class="character-section">
+                <div class="character-card">
+                    <div class="profession">先生 (せんせい)</div>
+                    <h3>Sensei</h3>
+                    <p>TEACHER</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">医者 (いしゃ0)</div>
+                    <h3>Isha</h3>
+                    <p>DOCTOR</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">看護師 (かんごし)</div>
+                    <h3>Kangoshi</h3>
+                    <p>NURSE</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">エンジニア</div>
+                    <h3>Enjinia</h3>
+                    <p>ENGINEER</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">4弁護士 (べんごし)</div>
+                    <h3>Bengoshi</h3>
+                    <p>LAWYER</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">警察官 (けいさつかん)</div>
+                    <h3>Keisatsukan</h3>
+                    <p>POLICE OFFICIER</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession"> 消防士 (しょうぼうし)</div>
+                    <h3>Shōbōshi</h3>
+                    <p>FIREFIGHTER</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">シェフ</div>
+                    <h3>Shefu</h3>
+                    <p>CHEF</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">農家 (のうか)</div>
+                    <h3>Nōka</h3>
+                    <p>FARMER</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">会社員 (かいしゃいん)</div>
+                    <h3>Kaishain</h3>
+                    <p>OFFICE WORKER</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">芸術家 (げいじゅつか)</div>
+                    <h3>Geijutsuka</h3>
+                    <p>ARTIST</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">音楽家 (おんがくか)</div>
+                    <h3>Ongakuka</h3>
+                    <p>MUCISIAN</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession"> 俳優 (はいゆう)/女優 (じょゆう)</div>
+                    <h3>Haiyū,Joyū</h3>
+                    <p>ACTOR / ACTRESS</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">作家 (さっか)</div>
+                    <h3>Sakka</h3>
+                    <p>WRITER</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">ジャーナリスト</div>
+                    <h3>Jānarisuto</h3>
+                    <p>JOURNALIST</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">科学者 (かがくしゃ)</div>
+                    <h3>Kagakusha</h3>
+                    <p>SCIENTIST</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">建築家 (けんちくか)</div>
+                    <h3>Kenchikuka</h3>
+                    <p>ARCHITECT</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">薬剤師 (やくざいし)</div>
+                    <h3>Yakuzai-shi</h3>
+                    <p>PHARMASIST</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">歯医者 (はいしゃ)</div>
+                    <h3>Haisha</h3>
+                    <p>DENTIST</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">パイロット</div>
+                    <h3>Pairotto</h3>
+                    <p>PILOT</p>
+                </div>
+                </div>
+                <div class="container">
+                    <h1>Japanese Relations</h1>
+                    <div class="character-section">
+                <div class="character-card">
+                    <div class="relation">父 (ちち),お父さん (おとうさん)</div>
+                    <h3>Chichi,Otōsan</h3>
+                    <p>FATHER</p>
+                </div>
+                <div class="character-card">
+                    <div class="relation">母 (はは),お母さん (おかあさん)</div>
+                    <h3>Haha,Okāsan</h3>
+                    <p>MOTHER</p>
+                </div>
+                <div class="character-card">
+                    <div class="relation">兄 (あに),お兄さん (おにいさん)</div>
+                    <h3>Ani,Onīsan</h3>
+                    <p>OLDER BROTHER</p>
+                </div>
+                <div class="character-card">
+                    <div class="relation">姉 (あね),お姉さん (おねえさん)</div>
+                    <h3>Ane,Onēsan</h3>
+                    <p>OLDER SISTER</p>
+                </div>
+                <div class="character-card">
+                    <div class="relation">弟 (おとうと)</div>
+                    <h3>Otōto</h3>
+                    <p>YONGER BROTHER</p>
+                </div>
+                <div class="character-card">
+                    <div class="relation">妹 (いもうと)</div>
+                    <h3>Imōto</h3>
+                    <p>YONGER SISTER</p>
+                </div>
+                <div class="character-card">
+                    <div class="relation"> 祖父 (そふ),おじいさん </div>
+                    <h3>Sofu,Ojīsan</h3>
+                    <p>GRANDFATHER</p>
+                </div>
+                <div class="character-card">
+                    <div class="relation">祖母 (そぼ),おばあさん</div>
+                    <h3>Sobo,Obāsan</h3>
+                    <p>GRANDMOTHER</p>
+                </div>
+                <div class="character-card">
+                    <div class="profession">叔父 (おじ)</div>
+                    <h3>Oji</h3>
+                    <p>UNCLE</p>
+                </div>
+                <div class="character-card">
+                    <div class="relation"> 叔母 (おば)</div>
+                    <h3>Oba</h3>
+                    <p>AUNTY</p>
+                </div>
+                <div class="character-card">
+                    <div class="relation">いとこ</div>
+                    <h3>Itoko</h3>
+                    <p>COUSIN</p>
+                </div>
+                <div class="character-card">
+                    <div class="relation">夫 (おっと),主人 (しゅじん)</div>
+                    <h3>Otto,Shujin</h3>
+                    <p>HUSBAND</p>
+                </div>
+                <div class="character-card">
+                    <div class="relation">妻 (つま),家内 (かない)</div>
+                    <h3>Tsuma,Kanai</h3>
+                    <p>WIFE</p>
+                </div>
+                <div class="character-card">
+                    <div class="relation">息子 (むすこ)</div>
+                    <h3>Musuko</h3>
+                    <p>SON</p>
+                    </div>
+                <div class="character-card">
+                    <div class="relation">娘 (むすめ)</div>
+                    <h3>Musume</h3>
+                    <p>DAUGHTER</p>
+                    </div>
+                <div class="character-card">
+                    <div class="relation">兄弟 (きょうだい)</div>
+                    <h3>Kyōdai</h3>
+                    <p>SIBLING</p>
+                    </div>
+                <div class="character-card">
+                    <div class="relation">両親 (りょうしん)</div>
+                    <h3>Ryōshin</h3>
+                    <p>PARENTS</p>
+                    </div>
+                <div class="character-card">
+                    <div class="relation">友達 (ともだち)</div>
+                    <h3>Tomodachi</h3>
+                    <p>FRIEND</p>
+                    </div>
+                <div class="character-card">
+                    <div class="relation">知り合い (しりあい)</div>
+                    <h3>Shirai</h3>
+                    <p>ACQUAINTANCE</p>
+                    </div>
+                <div class="character-card">
+                    <div class="relation">同僚 (どうりょう)</div>
+                    <h3>Dōryō</h3>
+                    <p>COLLEAGE</p>
+                    </div>
+                <div class="character-card">
+                    <div class="relation">隣人 (りんじん)</div>
+                    <h3>Rinjin</h3>
+                    <p>NEIGHBOR</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

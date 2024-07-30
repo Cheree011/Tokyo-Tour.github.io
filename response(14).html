@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+
+    <style>
+        body {
+            margin: 0;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color :#ee7e97;;
+            color: white;
+            position:fixed;
+            width: 100%;
+            top:0;
+            left:0;
+            z-index:1000;
+            padding: 10px 20px;
+            justify-content: space-between;
+
+        }
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff; /* Text color for navigation links */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Adjust font size */
+        }
+        .menu {
+            width: 250px;
+            height: 100vh;
+            background-color: #a30e3b;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 70px 20px 20px;
+            box-sizing: border-box;
+        }
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .menu-list li {
+            position: relative;
+        }
+        .menu-list li a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 250ms;
+            z-index: 2;
+        }
+        .menu-list:hover > li a:not(:hover) {
+            opacity: 0.3;
+        }
+        .menu-list li a::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 5vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 500px;
+            z-index: -1;
+            color: hsla(0, 0%, 0%, 0.496);
+            opacity: 0;
+            transition: 0.5s ease;
+            pointer-events: none;
+        }
+        .menu-list li a:hover::before {
+            opacity: 1;
+            letter-spacing: 10px;
+        }
+       
+        .content {
+            margin-left: 270px;
+            padding: 100px 20px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            color: rgb(0, 0, 0);
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .character-section {
+            margin: 20px 0;
+        }
+        .character-card {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e6f7ff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .character-card h3 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .character-card p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .response {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 2px solid #a20d3f;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .response h3 {
+            font-size: 1.4rem;
+            color: #12a75b;
+            margin-top: 0;
+        }
+        .response p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        .response p span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor </h1>
+        <nav>
+            <ul>
+                <li><a href="home(2).html">Home</a></li>
+                <li><a href="https://translate.google.co.jp/?hl=en&sl=en&tl=ja&op=translate">Translate 🔍</a></li>
+                <li><a href="anime(15).html">Anime</a></li>
+                <li><a href="quiz(16).html">Quiz</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+    <div class="menu">
+        <ul class="menu-list">
+            <li><a href="alphabets(3).html" data-text="Alphabets">Alphabets</a></li>
+            <li><a href="numbers(4).html" data-text="Numbers">Numbers</a></li>
+            <li><a href="professionrelation(5).html" data-text="Profession Relations">Profession and Relations</a></li>
+            <li><a href="monthseason(6).html" data-text="Months Seasons">Months and Seasons</a></li>
+            <li><a href="nature(7).html" data-text="Nature">Nature</a></li>
+            <li><a href="food(8).html" data-text="Food">Food</a></li>
+            <li><a href="country(9).html" data-text="Country">Country</a></li>
+            <li><a href="greetings(10).html" data-text="Greetings">Greetings</a></li>
+            <li><a href="partofspeech(11).html" data-text="Part of Speech">Part of Speech</a></li>
+            <li><a href="grammartips(12).html" data-text="Grammar Tips">Grammar Tips</a></li>
+            <li><a href="conversation(13).html" data-text="Conversation">Conversation</a></li>
+            <li><a href="home(2).html" data-text="Response">Response</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="container">
+            <h1 style="color: #000000;">Responses in Japanese</h1>
+            
+            <div class="response">
+                <h3>uh huh (うん) - <span>Un</span></h3>
+                <p>A casual affirmation often used in conversation to indicate agreement or understanding.</p>
+            </div>
+
+            <div class="response">
+                <h3>oh I see (ああなるほど) - <span>Ā naruhodo</span></h3>
+                <p>Expression used to show understanding or realization about something that was previously unclear.</p>
+            </div>
+
+            <div class="response">
+                <h3>yeah sure (はい、確かに) - <span>Hai, tashika ni</span></h3>
+                <p>An affirmative response indicating agreement or confirmation.</p>
+            </div>
+
+            <div class="response">
+                <h3>Is that so? (そうですか？) - <span>Sōdesu ka?</span></h3>
+                <p>Commonly used to seek confirmation or clarification about something just mentioned.</p>
+            </div>
+
+            <div class="response">
+                <h3>Okay!! (わかった！！) - <span>Wakatta!!</span></h3>
+                <p>Expresses clear understanding or acknowledgment of information received.</p>
+            </div>
+
+            <div class="response">
+                <h3>hmm (ふーむ) - <span>Fūmu</span></h3>
+                <p>An interjection indicating contemplation or consideration of something.</p>
+            </div>
+
+            <div class="response">
+                <h3>really? (本当に？) - <span>Hontōni?</span></h3>
+                <p>Expresses surprise or skepticism, seeking further confirmation or information.</p>
+            </div>
+
+            <div class="response">
+                <h3>Your kidding!! (冗談だよ！！) - <span>Jōdan da yo!!</span></h3>
+                <p>Response indicating disbelief or amusement at something said in jest.</p>
+            </div>
+
+            <div class="response">
+                <h3>I see (なるほど) - <span>Naruhodo</span></h3>
+                <p>Expression of understanding or acknowledgment, often used in response to new information.</p>
+            </div>
+
+            <div class="response">
+                <h3>Exactly (その通り) - <span>Sonotōri</span></h3>
+                <p>Indicates agreement or affirmation that something is correct or accurate.</p>
+            </div>
+
+            <div class="response">
+                <h3>Interested (興味がある) - <span>Kyōmi ga aru</span></h3>
+                <p>Expression indicating curiosity or desire to learn more about something.</p>
+            </div>
+
+            <div class="response">
+                <h3>And then? (その後？) - <span>Sonogo?</span></h3>
+                <p>Used to inquire about what happens next or what follows in a sequence of events.</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

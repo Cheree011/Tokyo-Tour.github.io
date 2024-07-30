@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tokyo tutor</title>
+<link rel="Website icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        background-color: white;
+        color: black;
+    }
+    header {
+        display: flex;
+        align-items: center;
+        background-color: #ee7e97;
+        color: white;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        padding: 10px 20px;
+        justify-content: space-between;
+    }
+    header .logo img {
+        width: 50px; /* Adjust size as needed */
+        height: auto;
+    }
+    header h1 {
+        font-size: 2rem;
+        margin: 0;
+    }
+    .menu {
+        width: 250px;
+        height: 100vh;
+        background-color: #a30e3b;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 70px 20px 20px;
+        box-sizing: border-box;
+    }
+    .menu-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        position: relative;
+    }
+    .menu-list li {
+        position: relative;
+    }
+    .menu-list li a {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+        transition: 250ms;
+        z-index: 2;
+    }
+    .menu-list:hover > li a:not(:hover) {
+        opacity: 0.3;
+    }
+    .menu-list li a::before {
+        content: attr(data-text);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: clamp(1rem, 5vw, 1rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 500px;
+        z-index: -1;
+        color: hsla(0, 0%, 0%, 0.496);
+        opacity: 0;
+        transition: 0.5s ease;
+        pointer-events: none;
+    }
+    .menu-list li a:hover::before {
+        opacity: 1;
+        letter-spacing: 10px;
+    }
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    nav ul li {
+        display: inline-block;
+        margin-right: 27px;
+    }
+    nav ul li a {
+        color: #fff; /* Text color for navigation links */
+        text-decoration: none; /* Remove underline */
+        font-size: 16px; /* Adjust font size */
+        padding-bottom: 10px; /* Space for underline effect */
+        position: relative; /* Required for underline effect */
+        transition: all 0.5s; /* Smooth transition */
+    }
+    nav ul li a:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 0;
+        background: #000000;
+        height: 1px;
+        transition: all 0.5s;
+    }
+    nav ul li a:hover {
+        color: #000000;
+    }
+    nav ul li a:hover:after {
+        width: 100%;
+    }
+        .main-content {
+            padding: 200px;
+        }
+        .fancy-text {
+            font-family: 'Times New Roman', serif;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+    .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Space between items */
+    max-width: 800px; /* Limit container width */
+    margin: 20px auto; /* Center align and add margin */
+}
+
+.item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out; /* Smooth animation */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space evenly within item */
+}
+
+.item:hover {
+    transform: translateY(-5px); /* Lift item on hover */
+}
+
+.item img {
+    max-width: 100%; /* Ensure images don't exceed their container */
+    display: block;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text h2 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.text p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo tutor</h1>
+        <nav>
+            <ul>
+                <li><a href="home(2).html">Home</a></li>
+                <li><a href="https://translate.google.co.jp/?hl=en&sl=en&tl=ja&op=translate">Translate 🔍</a></li>
+                <li><a href="quiz(16).html">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<div class="container">
+    <div class="item">
+        <img src="C:\Users\Ragini Sunil Rane\Downloads\ce96f2bd0e1d1ab1c9c1a04ebca0cc7f.jpg" alt="Image 1">
+        <div class="text">
+            <h2>L lawlite</h2>
+            <h3>もともと私は一人でしたし…</h3>
+            <h3>motomoto watashi wa hitori de shita shi.</h3>
+            <p>I was all alone in the beginning.</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="C:\Users\Ragini Sunil Rane\Downloads\fa53bb8a9ef7fd91018369b3eafae0e1.jpg" alt="Image 2">
+        <div class="text">
+            <h2>Sukuna</h2>
+            <h3>分を弁えろ痴れ者が</h3>
+            <h3>Bun o wakimaero shiremono ga</h3>
+            <p>Know your place,you idiot.</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="C:\Users\Ragini Sunil Rane\Downloads\478f2293dfb03f5506eef32791a104b5.jpg" alt="Image 3">
+        <div class="text">
+            <h2>Goku</h2>
+            <h3>オラはクチの固いほうだ。</h3>
+            <h3>ora wa kuchi no katai hou da.</h3>
+            <p>I can keep secrets.</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="C:\Users\Ragini Sunil Rane\Downloads\f534632634633fd1ffca9c1f6119329b.jpg" alt="Image 4">
+        <div class="text">
+            <h2>Levi</h2>
+            <h3>今お前に一番必要なのは言葉による教育ではなく、教訓だ。</h3>
+            <h3>ima omae ni ichiban hitsuyou na nowa kotoba ni yoru kyouiku dewa naku, kyoukun da.</h3>
+            <p>Right now you don’t need to be educated by words, you need to be taught a lesson.</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="C:\Users\Ragini Sunil Rane\Downloads\d46240c75bd7155ab751f7c4cf019fd3.jpg" alt="Image 5">
+        <div class="text">
+            <h2>Luffy</h2>
+            <h3>おれはいつかこの一味にも負けない仲間を集めて！世界一の財宝見つけて！海賊王になってやる！</h3>
+            <h3>ore wa itsuka kono ichimi ni mo makenai nakama o atsumete. sekaiichi no zaihou mitsukete. kaizokuou ni natte yaru.
+            </h3>
+            <p>One day I’ll gather a crew that’s stronger than you guys, find the world’s biggest treasure and become the pirate king!</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="C:\Users\Ragini Sunil Rane\Downloads\ca30d4c2aa8d188deca29adcf399782d.jpg" alt="Image 6">
+        <div class="text">
+            <h2>Tanjiro</h2>
+            <h3>「選ばれた者でなくとも、力が足りずとも、人にはどうしても退けない時があります。」</h3>
+            <h3>erabaretamonodenakutomo chikaragatarizutomo hitoniwa doushitemo hikenaitokiga arimasu</h3>
+            <p>Even if you aren’t the chosen one, even if you don’t have enough power, there are times when people can’t back down.</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="C:\Users\Ragini Sunil Rane\Downloads\ab0c3c6c953a64a258bb434671defe61.jpg" alt="Image 7">
+        <div class="text">
+            <h2>Zenitsu</h2>
+            <h3>「自分がされて嫌だったことは人にしちゃいけない」</h3>
+            <h3>Jibunga Sarete Iyadattakotowa Hitonishichaikenai</h3>
+            <p>Don’t do to others what you don’t like being done to yourself.</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="C:\Users\Ragini Sunil Rane\Downloads\5995b8733a0e79689f1553a14ad66e4f.jpg" alt="Image 8">
+        <div class="text">
+            <h2>Vegeta</h2>
+            <h3>気に入らないヤツは誰であろうと殺すだけだ。サイヤ人と一緒さ…</h3>
+            <h3>ki ni iaranai yatsu wa dare de arou to korosu dake da. saiyajin to issho sa.</h3>
+            <p>If you don’t like someone, you’ll kill him. That’s the Saiyan way, too.</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="C:\Users\Ragini Sunil Rane\Downloads\425f0219a2ac91f77c0e5c608e1401f7.jpg" alt="Image 9">
+        <div class="text">
+            <h2>Sanji</h2>
+            <h3>言わば出会った全員が恩人だ…誰も傷つけず消えたい。</h3>
+            <h3>iwaba deatta zen’in ga onjin da. daremo kizutsukezu kietai.</h3>
+            <p>Everyone I’ve met, they’re all my saviors. I want to disappear without hurting a single one of them. </p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="C:\Users\Ragini Sunil Rane\Downloads\06d8d8ad61338ac80da71b9f132a7c12.jpg" alt="Image 10">
+        <div class="text">
+            <h2>Hinata</h2>
+            <h3>ほんの一瞬でもスピードを緩めれば“取り返せない遅れ”になる</h3>
+            <h3>Hon'no isshun demo supīdo o yurumereba “torikaesenai okure” ni naru</h3>
+            <p>TLET UP FOR EVEN A MOMENT…AND THAT WILL TURN INTO A “GAP.”</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="C:\Users\Ragini Sunil Rane\Downloads\bf8bca8b7ae1d08012314704f399c4eb.jpg" alt="Image 11">
+        <div class="text">
+            <h2>Megumi</h2>
+            <h3>少しでも多くの善人が平等を享受できる様に
+                俺は不平等に人を助ける</h3>
+            <h3>Sukoshi demo ōku no zen'nin ga byōdō o kyōju dekiru yō ni ore wa fubyōdō ni hito o tasukeru
+            </h3>
+            <p>So that as many good people as possible can enjoy equality.
+                I help people unequally</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="C:\Users\Ragini Sunil Rane\Downloads\7489951dcf78af3447b24376ff43bdea.jpg" alt="Image 12">
+        <div class="text">
+            <h2>Dazai</h2>
+            <h3>笑わせてさえいれば、どんな形でも大丈夫です。</h3>
+            <h3>Warawa sete sae ireba, don'na katachi demo daijōbudesu. </h3>
+            <p>Japanese
+                As long as I can make them laugh, it doesn't matter how, I'll be alright.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

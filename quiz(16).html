@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="Website icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #ee7e97;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .menu {
+            width: 250px;
+            height: 100vh;
+            background-color: #a30e3b;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 70px 20px 20px;
+            box-sizing: border-box;
+        }
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .menu-list li {
+            position: relative;
+        }
+        .menu-list li a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 250ms;
+            z-index: 2;
+        }
+        .menu-list:hover > li a:not(:hover) {
+            opacity: 0.3;
+        }
+        .menu-list li a::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 5vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 500px;
+            z-index: -1;
+            color: hsla(0, 0%, 0%, 0.496);
+            opacity: 0;
+            transition: 0.5s ease;
+            pointer-events: none;
+        }
+        .menu-list li a:hover::before {
+            opacity: 1;
+            letter-spacing: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 27px;
+        }
+        nav ul li a {
+            color: #fff; /* Text color for navigation links */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Adjust font size */
+            padding-bottom: 10px; /* Space for underline effect */
+            position: relative; /* Required for underline effect */
+            transition: all 0.5s; /* Smooth transition */
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0;
+            background: #000000;
+            height: 1px;
+            transition: all 0.5s;
+        }
+        nav ul li a:hover {
+            color: #000000;
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .quiz-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .quiz-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .quiz-card:hover {
+            transform: translateY(-10px);
+        }
+        .quiz-card h2 {
+            font-size: 1.5rem;
+            color: #ee7e97;
+        }
+        .quiz-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .quiz-card button {
+            background-color: #ee7e97;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .quiz-card button:hover {
+            background-color: #d36a82;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor </h1>
+        <nav>
+            <ul>
+                <li><a href="home(2).html">Home</a></li>
+                <li><a href="https://translate.google.co.jp/?hl=en&sl=en&tl=ja&op=translate">Translate 🔍</a></li>
+                <li><a href="anime(15).html">Anime</a></li>
+        
+            </ul>
+        </nav>
+    </div>
+    </header>
+    <div class="main-content">
+        <h2>Select a Quiz Level: </h2>
+        <div class="quiz-container">
+            <div class="quiz-card">
+                <h2>Level 1</h2>
+                <p>Beginner level quiz to test your basic knowledge.</p>
+                <button onclick="startQuiz('level1')"><a href="level 1(17).html" style="color: rgb(233, 231, 231);">Start Quiz</a></button>
+            </div>
+            <div class="quiz-card">
+                <h2>Level 2</h2>
+                <p>Intermediate level quiz for those with some experience.</p>
+                <button onclick="startQuiz('level2')"><a href="level 2(18).html" style="color: rgb(233, 231, 231);">Start Quiz</a></button>
+            </div>
+            <div class="quiz-card">
+                <h2>Level 3</h2>
+                <p>Advanced level quiz for experts.</p>
+                <button onclick="startQuiz('level3')"><a href="level3(19).html" style="color: rgb(233, 231, 231);">Start Quiz</a></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function startQuiz(level) {
+            alert('Starting ' + level + ' quiz!');
+            // Add your quiz starting logic here
+        }
+    </script>
+</body>
+</html>

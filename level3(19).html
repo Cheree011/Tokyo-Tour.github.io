@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="Website icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #ee7e97;
+            color: #fff;
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .home-icon {
+            position: absolute;
+            left: 60px;
+            color: white;
+            font-size: 24px;
+        }
+
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+            margin-right: 20px;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .quiz-container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+        .question {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .options li:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.02);
+        }
+        .options li.correct {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .options li.incorrect {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #85a6ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #a30e3b;
+        }
+        .result {
+            text-align: center;
+            padding: 20px;
+            display: none;
+            font-size: 1.2rem;
+            color: #12a75b;
+        }
+        .result.correct {
+            color: #28a745;
+        }
+        .result.incorrect {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="home(2).html" class="home-icon"><i class="fa fa-home">HOME</i></a> <!-- Home icon added here -->
+
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor</h1>
+    </header>
+    <div class="quiz-container">
+        <div class="question" id="question"></div>
+        <ul class="options" id="options"></ul>
+        <button class="submit-btn" id="submit-btn" style="display:none;">Next Question</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        const questions = [
+        {question:"Which of the following is the correct Japanese word for dog?", options:[" 車 (kuruma)" , "犬 (inu)" , "本 (hon)" , "猫 (neko)"] , answer:"犬 (inu)"
+},
+{question:"What is the Japanese term for book?" , options:[" 車 (kuruma)" , "本 (hon)" , "犬 (inu)" , "猫 (neko)"] ,answer:"本 (hon)"
+},
+{question:"Which of these is the Japanese pronoun for I?" , options:["彼 (kare)" , "彼女 (kanojo)" , "私 (watashi)" , "あなた (anata)"] , answer:"私 (watashi)"
+},
+{question:"What does the Japanese pronoun あなた (anata) mean in English?" , options:["He" , "She" , "You" , "We"] , answer:"You"
+},
+{question:"Which verb means to eat in Japanese?" , options:["行く (iku)" , "見る (miru)" , "食べる (taberu)" , "飲む (nomu)"] , answer:"食べる (taberu)"
+},
+{question:"What is the Japanese verb for to go?" , options:["見る (miru)" , "食べる (taberu)" , "行く (iku)" , "飲む (nomu)"] , answer:"行く (iku)"
+},
+{question:"Which of the following is an い-adjective meaning high/tall?" , options:["美しい (utsukushii)" , "静か (shizuka)" , "高い (takai)" , "便利 (benri)"] , answer:"高い (takai)"
+},
+{question:"Which な-adjective means convenient?" , options:["高い (takai)" , "美しい (utsukushii)" , "便利 (benri)" , "静か (shizuka)"] , answer:"便利 (benri)"
+},
+{question:"What does the adverb とても (totemo) mean?" , options:["Quickly" , "Sometimes" , "Very" , "Often"] , answer:"Very"
+},
+{question:"Which adverb means quickly?" , options:["早く (hayaku)" , "とても (totemo)" , "時々 (tokidoki)" , "たくさん (takusan)"] , answer:"早く (hayaku)"
+},
+{question:"Which of the following is a pre-noun adjectival meaning big?" , options:["小さな (chiisana)" , "大きな (ookina)" , "高い (takai)" , "静か (shizuka)"] , answer:"大きな (ookina)"
+},
+{question:"What is the pre-noun adjectival for small?" , options:["大きな (ookina)" , "小さな (chiisana)" , "美しい (utsukushii)" , "便利 (benri)"] , answer:"小さな (chiisana)"
+},
+{question:"Which conjunction means and in Japanese?" , options:["しかし (shikashi)" , "また (mata)" , "そして (soshite)" , "だから (dakara)"] , answer:"そして (soshite)"
+},
+{question:"What is the Japanese conjunction for however?" , options:["そして (soshite)" , "また (mata)" , "しかし (shikashi)" , "それから (sorekara)"] , answer:"しかし (shikashi)"
+},
+{question:"Which particle is used as a topic marker?" , options:["が (ga)" , "に (ni)" , "は (wa)" , "を (o)"] , answer:"は (wa)"
+},
+{question:"What does the particle を (o)indicate?" ,  options:["Subject" , "Topic" , "Direct object" , "Indirect object"] , answer:"Direct object"
+},
+{question:"Which interjection means thank you?" , options:["ああ (aa)" , "こんにちは (konnichiwa)" , "ありがとう (arigatou)" , "さようなら (sayounara)"] , answer:"ありがとう (arigatou)"
+},
+{question:"What is the Japanese interjection for hello?" , options:["ああ (aa)" , "こんにちは (konnichiwa)" , "ありがとう (arigatou)" , "さようなら (sayounara)"] , answer:"こんにちは (konnichiwa)" 
+},
+{
+question:"Which auxiliary verb is a polite copula in Japanese?" , options:["です (desu)" , "ます (masu)" , "たい (tai)" , "ある (aru)"] , answer:"です (desu)"
+},
+{
+question:"What does the auxiliary verb ます (masu) signify?" , options:["Past tense" , "Politeness" , "Desire" , "Negative form"] , answer:"Politeness"
+},
+{
+question:"Which group does the verb 書く (kaku) belong to?" , options:["Group 1 (五段動詞, Godan Dōshi)" , "Group 2 (一段動詞, Ichidan Dōshi)" , "Group 3 (不規則動詞, Fukisoku Dōshi)" , "None of the above"] , answer:"Group 1 (五段動詞, Godan Dōshi)"
+},
+{
+question:"What group is the verb する (suru) part of?", options:["Group 1 (五段動詞, Godan Dōshi)" , "Group 2 (一段動詞, Ichidan Dōshi)" , "Group 3 (不規則動詞, Fukisoku Dōshi)" , "None of the above"] , answer:"Group 3 (不規則動詞, Fukisoku Dōshi)"
+},
+{
+question:"Which of these is an い-adjective?" , options:["静か (shizuka)" , "便利 (benri)" , "新しい (atarashii)" , "高い (takai)"] , answer:"新しい (atarashii)"
+},
+{
+question:"Which of these is a な-adjective?" , options:["美しい (utsukushii)" , "高い (takai)" , "静か (shizuka)" , "早い (hayai)"] , answer:"静か (shizuka)"
+},
+{
+question:"In the sentence 私は学生です (watashi wa gakusei desu), what is the function of は (wa)?" , options:["Marks the subject" , "Marks the topic" , "Marks the object" , "Indicates direction"] , answer:"Marks the topic"
+},
+{
+question:"In the sentence 猫が好きです (neko ga suki desu), what is the role of が (ga)?" , options:["Marks the subject" , "Marks the topic" , "Marks the object" , "Indicates possession"] , answer:"Marks the subject"
+},
+{
+question:"What is the basic sentence order in Japanese?" , options:["Subject-Verb-Object (SVO)" , "Subject-Object-Verb (SOV)" , "Object-Subject-Verb (OSV)" , "Verb-Subject-Object (VSO)"] , answer:"Subject-Object-Verb (SOV)"
+},
+{
+question:"In the sentence 私はリンゴを食べます, what is the direct object?" , options:["私 (watashi)" , "食べます (tabemasu)" , "リンゴ (ringo)" , "を (o)"] , answer:"リンゴ (ringo)"
+},
+{
+question:"In the sentence 本を読みます, what is the role of the particle を (o)?" , options:["Subject marker" , "Topic marker" , "Direct object marker" , "Location marker"] , answer:"Direct object marker"
+},
+{
+question:"Which particle indicates location, time, or direction?" , options:["が (ga)" , "に (ni)" , "は (wa)" , "を (o)"] , answer:"に (ni)"
+},
+{
+question:"In the sentence バスで行きます, what does the particle で (de) signify?" , options:["Subject" , "Means or location of action" , "Direction" , "Topic"] , answer:"Means or location of action"
+},
+{
+question:"What is the past affirmative form of the verb 食べる (taberu)?" , options:["食べました (tabemashita)" , "食べません (tabemasen)" , "食べます (tabemasu)" , "食べない (tabenai)"] , answer:"食べました (tabemashita)"
+},
+{
+question:"How do you form the negative of 食べる (taberu)?" , options:["食べました (tabemashita)" , "食べません (tabemasen)" , "食べます (tabemasu)" , "食べない (tabenai)"] , answer:"食べません (tabemasen)"
+},
+{
+question:"What is the past negative form of 食べる (taberu)?" , options:["食べました (tabemashita)" , "食べません (tabemasen)" , "食べませんでした (tabemasen deshita)" , "食べなかった (tabenakatta)"] , 
+answer:"食べませんでした (tabemasen deshita)"
+},
+{
+question:"Which type of adjective is 高い (takai)?" ,  options:["い-Adjective" , "な-Adjective" , "Verb" , "Noun"] , answer:"い-Adjective"
+},
+{
+question:"What type of adjective is 静か (shizuka)?" , options:["い-Adjective" , "な-Adjective" , "Verb" , "Noun"] , answer:"な-Adjective"
+},
+{
+question:"How do you conjugate the い-adjective 新しい (atarashii) to its present negative form?" , options:["新しい (atarashii)" , "新しくない (atarashikunai)" , "新しいです (atarashii desu)" , "新しかった (atarashikatta)"] , answer:"新しくない (atarashikunai)"
+},
+{
+question:"How do you conjugate the な-adjective 静か (shizuka) to its present affirmative form?" , options:["静かです (shizuka desu)" , "静かではありません (shizuka de wa arimasen)" , "静かでした (shizuka deshita)" , "静かではありませんでした (shizuka de wa arimasen deshita)"] , answer:"静かです (shizuka desu)"
+},
+{
+question:"How do you conjugate the な-adjective 静か (shizuka) to its past affirmative form?" , options:["静かです (shizuka desu)" , "静かではありません (shizuka de wa arimasen)" , "静かでした (shizuka deshita)" , "静かではありませんでした (shizuka de wa arimasen deshita)"] , answer:"静かでした (shizuka deshita)"
+},
+{
+question:"In the phrase 日本語の先生, what does の (no) indicate?" , options:["Topic" , "Possession" , "Direction" , "Subject"] , answer:"Possession"
+},
+{
+question:"Which of these pronouns is often omitted if the subject is clear from context?" , options:["私 (watashi)" , "あなた (anata)" , "彼 (kare)" , "彼女 (kanojo)"] , answer:"私 (watashi)"
+},
+{
+question:"How do you form a question in Japanese?" , options:["Add か (ka) at the end of a statement" , "Change the verb form" , "Use a specific particle before the verb" , "Add です (desu) at the end of a statement"] , answer:"Add か (ka) at the end of a statement"
+},
+{
+question:"In the sentence あなたは学生ですか, what does か (ka) indicate?" , options:["Possession" , "Question" , "Negation" , "Politeness"] , answer:"Question"
+},
+{
+question:"What is the correct negation for the い-adjective 高い (takai)?" , options:["高いではありません (takai de wa arimasen)" , "高いません (takaimasen)" , "高くない (takakunai)" , "高ない (takanai)"] , answer:"高くない (takakunai)"
+},
+{
+question:"Which form of 行く (iku) is used in casual speech?" , options:["行きます (ikimasu)" , "行く (iku)" , "行きません (ikimasen)" , "行きましょう (ikimashou)"] , answer:"行く (iku)"
+},
+{
+question:"Which counter is appropriate for counting people?" , options:["枚 (mai)" , "本 (hon)" , "人 (nin)" , "匹 (hiki)"] , answer:"人 (nin)"
+},
+{
+question:"What is the past tense form of 飲む (nomu)?" , options:["飲みます (nomimasu)" , "飲んだ (nonda)" , "飲んで (nonde)" , "飲む (nomu)"] , answer:"飲んだ (nonda)"
+},
+{
+question:"How are relative clauses structured in Japanese?" , options:["After the noun they modify" , "Before the noun they modify" , "At the end of the sentence" , "At the beginning of the sentence"] , answer:"Before the noun they modify"
+},
+{
+question:"How do you say be eaten in Japanese passive form?" , options:["食べる (taberu)" , "食べられる (taberareru)" , "食べさせる (tabesaseru)" , "食べない (tabenai)"], answer:"食べられる (taberareru)"
+},
+
+           
+        ];
+
+        let currentQuestionIndex = 0;
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const submitBtn = document.getElementById('submit-btn');
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = '';
+            currentQuestion.options.forEach(option => {
+                const li = document.createElement('li');
+                li.textContent = option;
+                li.addEventListener('click', () => selectOption(li, currentQuestion.answer));
+                optionsElement.appendChild(li);
+            });
+        }
+
+        function selectOption(selectedOption, correctAnswer) {
+            const options = optionsElement.querySelectorAll('li');
+            options.forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+                option.style.pointerEvents = 'none';
+                if (option.textContent === correctAnswer) {
+                    option.classList.add('correct');
+                }
+            });
+            if (selectedOption.textContent !== correctAnswer) {
+                selectedOption.classList.add('incorrect');
+            }
+            submitBtn.style.display = 'block';
+        }
+
+        submitBtn.addEventListener('click', () => {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+                submitBtn.style.display = 'none';
+            } else {
+                // Handle end of quiz (optional: can show result here)
+                alert("Quiz completed!わかった！Wakatta!");
+            }
+        });
+
+        loadQuestion();
+    </script>
+</body>
+</html>

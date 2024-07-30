@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="Website icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+
+    <style>
+                body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #ee7e97;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .menu {
+            width: 250px;
+            height: 100vh;
+            background-color: #a30e3b;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 70px 20px 20px;
+            box-sizing: border-box;
+        }
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .menu-list li {
+            position: relative;
+        }
+        .menu-list li a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 250ms;
+            z-index: 2;
+        }
+        .menu-list:hover > li a:not(:hover) {
+            opacity: 0.3;
+        }
+        .menu-list li a::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 5vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 500px;
+            z-index: -1;
+            color: hsla(0, 0%, 0%, 0.496);
+            opacity: 0;
+            transition: 0.5s ease;
+            pointer-events: none;
+        }
+        .menu-list li a:hover::before {
+            opacity: 1;
+            letter-spacing: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 27px;
+        }
+        nav ul li a {
+            color: #fff; /* Text color for navigation links */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Adjust font size */
+            padding-bottom: 10px; /* Space for underline effect */
+            position: relative; /* Required for underline effect */
+            transition: all 0.5s; /* Smooth transition */
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0;
+            background: #000000;
+            height: 1px;
+            transition: all 0.5s;
+        }
+        nav ul li a:hover {
+            color: #000000;
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .content {
+            margin-left: 270px;
+            padding: 100px 20px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            color: rgb(0, 0, 0);
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .character-section {
+            margin: 20px 0;
+        }
+        .character-card {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e6f7ff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .character-card h3 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .character-card p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+       .greetings-section {
+            margin: 20px 0;
+        }
+       .greetings-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+       .greetings-list li {
+            margin-bottom: 10px;
+        }
+       .greetings-list li span {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor </h1>
+        <nav>
+            <ul>
+                <li><a href="home(2).html">Home</a></li>
+                <li><a href="https://translate.google.co.jp/?hl=en&sl=en&tl=ja&op=translate">Translate 🔍</a></li>
+                <li><a href="anime(15).html">Anime</a></li>
+                <li><a href="quiz(16).html">Quiz</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+    <div class="menu">
+<ul class="menu-list">
+            <li><a href="alphabets(3).html" data-text="Alphabets">Alphabets</a></li>
+            <li><a href="numbers(4).html" data-text="Numbers">Numbers</a></li>
+            <li><a href="professionrelation(5).html" data-text="Profession Relations">Profession and Relations</a></li>
+            <li><a href="monthseason(6).html" data-text="Months Seasons">Months and Seasons</a></li>
+            <li><a href="nature(7).html" data-text="Nature">Nature</a></li>
+            <li><a href="food(8).html" data-text="Food">Food</a></li>
+            <li><a href="country(9).html" data-text="Country">Country</a></li>
+            <li><a href="home(2).html" data-text="Greetings">Greetings</a></li>
+            <li><a href="partofspeech(11).html" data-text="Part of Speech">Part of Speech</a></li>
+            <li><a href="grammartips(12).html" data-text="Grammar Tips">Grammar Tips</a></li>
+            <li><a href="conversation(13).html" data-text="Conversation">Conversation</a></li>
+            <li><a href="response(14).html" data-text="Response">Response</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="container">
+            <h1>Greetings</h1>
+            <div class="greetings-section">
+                <h2>✵General Greetings✵</h2>
+                <ul class="greetings-list">
+                    <li><h3>こんにちは (Konnichiwa)</h3><br>Meaning: Hello / Good afternoon<br>Usage: Used during the day as a general greeting. Can be used in both formal and informal settings.</li><hr>
+                    <li><h3>こんばんは (Konbanwa)</h3><br>Meaning: Good evening<br>Usage: Used in the evening to greet someone. Suitable for both formal and informal situations.</li><hr>
+                    <li><h3>おはよう (Ohayou)</h3><br>Meaning: Good morning (informal)<br>Usage: Used in the morning to greet friends, family, or peers.</li><hr>
+                    <li><h3>おはようございます (Ohayou gozaimasu)</h3>Meaning: Good morning (formal)<br>Usage: Used in the morning in more formal settings, such as workplaces or with people of higher status.</li><hr>
+                </ul>
+                <h2>✵Farewells✵</h2>
+                <ul class="greetings-list">
+                    <li><h3>さようなら (Sayounara)</h3><br>Meaning: Goodbye<br>Usage: Used when parting for a long time or permanently. Less commonly used for casual goodbyes.</li>
+                    <hr><li><h3>じゃあね (Jā ne)</h3><br>Meaning: See you / Bye<br>Usage: Informal way to say goodbye, used with friends and family.</li>
+                    <hr><li><h3>またね (Mata ne)</h3><br>Meaning: See you again<br>Usage: Informal farewell, implying you will meet again soon.</li>
+                    <hr><li><h3>おやすみ (Oyasumi)</h3><br>Meaning: Good night (informal)<br>Usage: Used when parting at night, typically before going to bed.</li>
+                    <hr><li><h3>おやすみなさい (Oyasuminasai)</h3><br>Meaning: Good night (formal)<br>Usage: A more polite way to wish someone a good night.</li>
+               <hr> </ul>
+               <h2>✵Polite Greetings✵</h2>
+                <ul class="greetings-list">
+                    <li><h3>はじめまして (Hajimemashite)</h3><br>Meaning:Nice to meet you<br>Usage:Used when meeting someone for the first time.
+</li>
+                    <hr><li><h3>どうぞよろしくお願いします (Douzo yoroshiku onegaishimasu)</h3><br>Meaning:Please treat me well / I look forward to working with you<br>Usage:Used after はじめまして (Hajimemashite) when introducing oneself.</li>
+                   <hr> </ul>
+                   <h2>✵Casual Greeeting✵</h2>
+                <ul class="greetings-list">
+                    <li><h3>やあ (Yā)</h3><br>Meaning: Hi / Hey
+<br>Usage:Very informal greeting used among close friends.</li>
+                    <hr><li><h3>元気？ (Genki?)</h3><br>Meaning: How are you?
+<br>Usage:Informal way to ask how someone is doing, typically used among friends.</li>
+<hr></ul>
+<h2>✵Seasonal and Special ocasssions✵</h2>
+                <ul class="greetings-list">
+                    <li><h3>あけましておめでとうございます (Akemashite omedetou gozaimasu)</h3><br>Meaning:Happy New Year
+
+<br>Usage:Used at the beginning of the New Year.
+</li>
+                    <hr><li><h3>おめでとうございます (Omedetou gozaimasu)</h3><br>Meaning:  Congratulations
+<br>Usage:Used to congratulate someone, often in formal settings.
+</li>
+<hr></ul>
+<h2>✵Additional Useful Greetings✵</h2>
+                <ul class="greetings-list">
+                    <li><h3>いらっしゃいませ (Irasshaimase</h3><br>Meaning:Happy New Year
+
+<br>Usage:Welcome (to a store or restaurant)</li>
+                    <hr><li><h3>失礼します (Shitsurei shimasu)</h3><br>Meaning: Excuse me (for interrupting or leaving)
+<br>Usage:Used to excuse oneself politely when interrupting or leaving a room.</li>
+                    <hr><li><h3>お元気ですか (Ogenki desu ka)</h3><br>Meaning: How are you? (formal)
+<br>Usage: A polite way to ask about someone's well-being.</li>
+<hr></ul>
+<h2>✵Additional Useful Greetings✵</h2>
+                <ul class="greetings-list">
+                    <li><h3>ありがとう (Arigatou)</h3><br>Meaning:Thank you (informal)
+<br>Usage: Used to express gratitude casually.
+</li>
+                    <hr><li><h3>ありがとうございます (Arigatou gozaimasu)</h3><br>Meaning: Thank you (formal)
+
+<br>Usage:A more polite way to say thank you.</li>
+                    <hr><li><h3>どういたしまして (Dou itashimashite)</h3><br>Meaning:You're welcome
+
+<br>Usage:Used in response to someone thanking you.</li>
+                                   <hr> </ul>
+<p>Understanding and using these greetings appropriately can greatly enhance your ability to communicate effectively and politely in Japanese.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

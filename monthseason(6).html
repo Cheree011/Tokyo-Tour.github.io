@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="Website icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+
+    <style>
+         body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #ee7e97;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .menu {
+            width: 250px;
+            height: 100vh;
+            background-color: #a30e3b;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 70px 20px 20px;
+            box-sizing: border-box;
+        }
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .menu-list li {
+            position: relative;
+        }
+        .menu-list li a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 250ms;
+            z-index: 2;
+        }
+        .menu-list:hover > li a:not(:hover) {
+            opacity: 0.3;
+        }
+        .menu-list li a::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 5vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 500px;
+            z-index: -1;
+            color: hsla(0, 0%, 0%, 0.496);
+            opacity: 0;
+            transition: 0.5s ease;
+            pointer-events: none;
+        }
+        .menu-list li a:hover::before {
+            opacity: 1;
+            letter-spacing: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 27px;
+        }
+        nav ul li a {
+            color: #fff; /* Text color for navigation links */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Adjust font size */
+            padding-bottom: 10px; /* Space for underline effect */
+            position: relative; /* Required for underline effect */
+            transition: all 0.5s; /* Smooth transition */
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0;
+            background: #000000;
+            height: 1px;
+            transition: all 0.5s;
+        }
+        nav ul li a:hover {
+            color: #000000;
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        
+        .content {
+            margin-left: 270px;
+            padding: 100px 20px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            color: rgb(0, 0, 0);
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .character-section {
+            margin: 20px 0;
+        }
+        .character-card {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e6f7ff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .character-card h3 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .character-card p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .months-seasons h2 {
+            font-size: 1.8rem;
+            color: #333;
+        }
+        .months-seasons ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+        .months-seasons ul li {
+            font-size: 1.2rem;
+            color: #555;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor </h1>
+        <nav>
+            <ul>
+                <li><a href="home(2).html">Home</a></li>
+                <li><a href="https://translate.google.co.jp/?hl=en&sl=en&tl=ja&op=translate">Translate 🔍</a></li>
+                <li><a href="anime(15).html">Anime</a></li>
+                <li><a href="quiz(16).html">Quiz</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+    <div class="menu">
+        <ul class="menu-list">
+            <li><a href="alphabets(3).html" data-text="Alphabets">Alphabets</a></li>
+            <li><a href="numbers(4).html" data-text="Numbers">Numbers</a></li>
+            <li><a href="professionrelation(5).html" data-text="Profession Relations">Profession and Relations</a></li>
+            <li><a href="home(2).html" data-text="Months Seasons">Months and Seasons</a></li>
+            <li><a href="nature(7).html" data-text="Nature">Nature</a></li>
+            <li><a href="food(8).html" data-text="Food">Food</a></li>
+            <li><a href="country(9).html" data-text="Country">Country</a></li>
+            <li><a href="greetings(10).html" data-text="Greetings">Greetings</a></li>
+            <li><a href="partofspeech(11).html" data-text="Part of Speech">Part of Speech</a></li>
+            <li><a href="grammartips(12).html" data-text="Grammar Tips">Grammar Tips</a></li>
+            <li><a href="conversation(13).html" data-text="Conversation">Conversation</a></li>
+            <li><a href="response(14).html" data-text="Response">Response</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div class="months-seasons">
+                <h2>Months</h2>
+                <ul>
+                    <li style="text-align: left;">&#9752;     一月 (いちがつ, Ichigatsu) - January</li>
+                    <li style="text-align: left;">☘    二月 (にがつ, Nigatsu) - February</li>
+                    <li style="text-align: left;">☘           三月 (さんがつ, Sangatsu) - March</li>
+                    <li style="text-align: left;">☘       四月 (しがつ, Shigatsu) - April</li>
+                    <li style="text-align: left;">☘ 五月 (ごがつ, Gogatsu) - May</li>
+                    <li style="text-align: left;">☘ 六月 (ろくがつ, Rokugatsu) - June</li>
+                    <li style="text-align: left;">☘ 七月 (しちがつ, Shichigatsu) - July</li>
+                    <li style="text-align: left;">☘ 八月 (はちがつ, Hachigatsu) - August</li>
+                    <li style="text-align: left;">☘ 九月 (くがつ, Kugatsu) - September</li>
+                    <li style="text-align: left;">☘ 十月 (じゅうがつ, Juugatsu) - October</li>
+                    <li style="text-align: left;">☘ 十一月 (じゅういちがつ, Juuichigatsu) - November</li>
+                    <li style="text-align: left;">☘ 十二月 (じゅうにがつ, Juunigatsu) - December</li>
+                </ul>
+                <h2>Seasons</h2>
+                <ul>
+                    <li style="text-align: left;">☁ 春 (はる, Haru) - Spring</li>
+                    <li style="text-align: left;">☁ 夏 (なつ, Natsu) - Summer</li>
+                    <li style="text-align: left;">☁ 秋 (あき, Aki) - Autumn/Fall</li>
+                    <li style="text-align: left;">☁ 冬 (ふゆ, Fuyu) - Winter</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

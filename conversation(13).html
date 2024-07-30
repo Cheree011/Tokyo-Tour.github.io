@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #ee7e97;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .menu {
+            width: 250px;
+            height: 100vh;
+            background-color: #a30e3b;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 70px 20px 20px;
+            box-sizing: border-box;
+        }
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .menu-list li {
+            position: relative;
+        }
+        .menu-list li a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 250ms;
+            z-index: 2;
+        }
+        .menu-list:hover > li a:not(:hover) {
+            opacity: 0.3;
+        }
+        .menu-list li a::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 5vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 500px;
+            z-index: -1;
+            color: hsla(0, 0%, 0%, 0.496);
+            opacity: 0;
+            transition: 0.5s ease;
+            pointer-events: none;
+        }
+        .menu-list li a:hover::before {
+            opacity: 1;
+            letter-spacing: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 27px;
+        }
+        nav ul li a {
+            color: #fff; /* Text color for navigation links */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Adjust font size */
+            padding-bottom: 10px; /* Space for underline effect */
+            position: relative; /* Required for underline effect */
+            transition: all 0.5s; /* Smooth transition */
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0;
+            background: #000000;
+            height: 1px;
+            transition: all 0.5s;
+        }
+        nav ul li a:hover {
+            color: #000000;
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 100px 20px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            color: rgb(0, 0, 0);
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .character-section {
+            margin: 20px 0;
+        }
+        .character-card {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e6f7ff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .character-card h3 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .character-card p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .conversation {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .conversation h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .conversation p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor </h1>
+        <nav>
+            <ul>
+                <li><a href="home(2).html">Home</a></li>
+                <li><a href="https://translate.google.co.jp/?hl=en&sl=en&tl=ja&op=translate">Translate 🔍</a></li>
+                <li><a href="anime(15).html">Anime</a></li>
+                <li><a href="quiz(16).html">Quiz</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+    <div class="menu">
+        <ul class="menu-list">
+            <li><a href="alphabets(3).html" data-text="Alphabets">Alphabets</a></li>
+            <li><a href="numbers(4).html" data-text="Numbers">Numbers</a></li>
+            <li><a href="professionrelation(5).html" data-text="Profession Relations">Profession and Relations</a></li>
+            <li><a href="monthseason(6).html" data-text="Months Seasons">Months and Seasons</a></li>
+            <li><a href="nature(7).html" data-text="Nature">Nature</a></li>
+            <li><a href="food(8).html" data-text="Food">Food</a></li>
+            <li><a href="country(9).html" data-text="Country">Country</a></li>
+            <li><a href="greetings(10).html" data-text="Greetings">Greetings</a></li>
+            <li><a href="partofspeech(11).html" data-text="Part of Speech">Part of Speech</a></li>
+            <li><a href="grammartips(12).html" data-text="Grammar Tips">Grammar Tips</a></li>
+            <li><a href="home(2).html" data-text="Conversation">Conversation</a></li>
+            <li><a href="response(14).html" data-text="Response">Response</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Basic Conversation</h1>
+        <div class="conversation">
+            <h3>
+                Context: Two friends meeting after a long time.<br>
+                A: こんにちは、久しぶりですね！<br>
+                B: こんにちは、本当に久しぶりですね。元気でしたか？<br>
+                A: はい、元気でした。あなたは？<br>
+                B: 私も元気でした。最近どうですか？<br>
+                A: 忙しいけど、楽しいです。
+            </h3>
+            <h3>
+                Translation:<br>
+                A: Konnichiwa, hisashiburi desu ne!<br>
+                B: Konnichiwa, hontou ni hisashiburi desu ne. Genki deshita ka?<br>
+                A: Hai, genki deshita. Anata wa?<br>
+                B: Watashi mo genki deshita. Saikin dou desu ka?<br>
+                A: Isogashii kedo, tanoshii desu.
+            </h3>
+            <p>MEANING:<br>
+               A:Hello, long time no see!<br>
+               B:Hello, it really has been a long time. How have you been?<br>
+               A:Yes, I've been well. And you?<br>
+               B:I've been well too. How have you been lately?<br>
+               A:Busy but enjoying it.<br>
+                </p>
+                <hr><h3>
+                    Context: Customer buying something in a store.<br>
+                   Customer:すみません、このシャツはいくらですか？<br>
+    Clerk:これは三千円です。<br>
+    Customer:そうですか。じゃあ、これをください。<br>
+    Clerk:ありがとうございます。袋にお入れしますか？<br>
+    Customer:はい、お願いします。<br>
+                </h3>
+                <h3>
+                    Translation:<br>
+                   Customer:Sumimasen, kono shatsu wa ikura desu ka?<br>
+    Clerk:Kore wa sanzen en desu.<br>
+    Customer:Sou desu ka. Jaa, kore o kudasai.<br>
+    Clerk:Arigatou gozaimasu. Fukuro ni o-ire shimasu ka?<br>
+    Customer:Hai, onegaishimasu.<br>
+                </h3>
+                <p>MEANING:<br>
+                  Customer:Excuse me, how much is this shirt?<br>
+    Clerk:This is 3000 yen.<br>
+    Customer:I see. Well, I'll take this.<br>
+    Clerk:Thank you. Would you like it in a bag?<br>
+    Customer:Yes, please.<br>
+    
+                    </p>
+                    <hr><h3>
+                        Context: A person asking for directions to the train station.<br>
+                       Person A:すみません、駅はどこですか？<br>
+        Person B: 駅はあちらです。まっすぐ行って、二つ目の信号を左に曲がってください。<br>
+        Person A:ありがとうございます。<br>
+                    </h3>
+                    <h3>
+                        Translation:<br>
+                      Person A:Sumimasen, kono shatsu wa ikura desu ka?<br>
+        Person B: Eki wa achira desu. Massugu itte, futatsu-me no shingou o hidari ni magatte kudasai.
+        <br>
+        Person A:Arigatou gozaimasu.
+        <br>
+        
+                    </h3>
+                    <p>MEANING:<br>
+                      Person A:xcuse me, where is the train station?
+        <br>
+        Person B:The station is over there. Go straight and turn left at the second traffic light.
+        <br>
+        Person A:Thank you.
+        <br>
+                        </p>
+                        <hr><h3>
+                            Context: Ordering food at a restaurant.
+            <br>
+                          Waiter:いらっしゃいませ。何名様ですか？<br>
+            Customer:二人です。<br>
+            Waiter:こちらへどうぞ。メニューをどうぞ。<br>
+            Customer:ありがとうございます。これとこれをください。<br>
+            Waiter:かしこまりました。<br>
+            
+                        </h3>
+                        <h3>
+                            Translation:<br>
+                          Waiter:Irasshaimase. Nan-mei sama desu ka?<br>
+            Customer:Futari desu.<br>
+            Waiter:Kochira e douzo. Menyū o douzo.<br>
+            Customer:Arigatou gozaimasu. Kore to kore o kudasai.<br>
+            Waiter:Kashikomarimashita.<br>
+            
+            
+                        </h3>
+                        <p>MEANING:<br>
+            Waiter:Welcome. How many people?<br>
+            Customer:Two people.<br>
+            Waiter:This way, please. Here is the menu.<br>
+            Customer:Thank you. I'll have this and this.<br>
+            Waiter:Certainly.<br>
+            
+                                          </p>
+                                          <hr><h3>
+                                            Context: Introducing oneself at a business meeting.
+                            
+                            <br>
+                                         Person A:はじめまして、田中と申します。どうぞよろしくお願いします。<br>
+                            Person B:はじめまして、鈴木です。こちらこそよろしくお願いします。<br>
+                            
+                            
+                                        </h3>
+                                        <h3>
+                                            Translation:<br>
+                                          Person A:Hajimemashite, Tanaka to moushimasu. Douzo yoroshiku onegaishimasu.<br>
+                            Person B:Hajimemashite, Suzuki desu. Kochira koso yoroshiku onegaishim<br>
+                            
+                            
+                                        </h3>
+                                        <p>MEANING:<br>
+                            Person A:Nice to meet you, my name is Tanaka. Please treat me well.<br>
+                            Person B:Nice to meet you, I'm Suzuki. Please treat me well too.<br>
+                            
+                                                          </p>
+                                                          <hr><h3>
+                                                            Context: Visiting a friend’s home.
+                                            
+                                            <br>
+                                                        Host:いらっしゃい。どうぞお入りください。<br>
+                                            Guest:おじゃまします。これ、お土産です。<br>
+                                            Host:ありがとうございます。お茶をどうぞ。
+                                            <br>Guest:ありがとうございます。<br>
+                                            
+                                            
+                                            
+                                                        </h3>
+                                                        <h3>
+                                                            Translation:<br>
+                                                          Host:Irasshai. Douzo o-hairi kudasai.<br>
+                                            Guest:O-jama shimasu. Kore, o-miyage desu.<br>
+                                            Host:Arigatou gozaimasu. O-cha o douzo.<br>
+                                            Guest:Arigatou gozaimasu.
+                                            <br>
+                                            
+                                            
+                                                        </h3>
+                                                        <p>MEANING:<br>
+                                            Host:Welcome. Please come in.<br>
+                                            Guest:Excuse me for intruding. This is a small gift.<br>
+                                            Host:Thank you. Please have some tea.<br>
+                                            Guest:Thank you.<br>
+                                            
+                                                                          </p>
+                                                                          <hr><h3>
+                                                                            Context:  Small talk about the weather.
+                                                            
+                                                            
+                                                            
+                                                            <br>
+                                                                        Person A:今日はいい天気ですね。
+                                                            <br>Person B:そうですね。暖かくて気持ちいいです。<br>
+                                                            
+                                                            
+                                                            
+                                                            
+                                                                        </h3>
+                                                                        <h3>
+                                                                            Translation:<br>
+                                                                          Person A:Kyou wa ii tenki desu ne.<br>
+                                                            Person B:Sou desu ne. Atatakakute kimochi ii desu.
+                                                            
+                                                            <br>
+                                                            
+                                                            
+                                                                        </h3>
+                                                                        <p>MEANING:<br>
+                                                            Person A:It's nice weather today, isn't it?
+                                                            <br>Person B:Yes, it is. It's warm and pleasant.
+                                                            
+                                                            <br>
+                                                            
+                                                                                          </p>                                                                  
+                                                                          
+                                                                          
+        </div>
+        
+    </div>
+</body>
+</html>

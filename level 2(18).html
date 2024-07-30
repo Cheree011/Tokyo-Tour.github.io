@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="Website icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #ee7e97;
+            color: #fff;
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Added for positioning home icon */
+        }
+        .home-icon {
+            position: absolute; /* Positioned absolutely within the header */
+            left: 60px; /* Adjusted to the top left */
+            color: white;
+            font-size: 24px;
+        }
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+            margin-right: 20px;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .quiz-container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+        .question {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .options li:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.02);
+        }
+        .options li.correct {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .options li.incorrect {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #85a6ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #a30e3b;
+        }
+        .result {
+            text-align: center;
+            padding: 20px;
+            display: none;
+            font-size: 1.2rem;
+            color: #12a75b;
+        }
+        .result.correct {
+            color: #28a745;
+        }
+        .result.incorrect {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="home(2).html" class="home-icon"><i class="fa fa-home">HOME</i></a> <!-- Home icon added here -->
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor</h1>
+    </header>
+    <div class="quiz-container">
+        <div class="question" id="question"></div>
+        <ul class="options" id="options"></ul>
+        <button class="submit-btn" id="submit-btn" style="display:none;">Next Question</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        const questions = [
+            { question: "Which of the following is a type of Japanese noodle?", options: ["Soba", "Baguette", "Penne", "Tortilla"], answer: "Soba" },
+            { question: "What is the Japanese word for grilled chicken skewers?", options: ["Tempura", "Yakitori", "Sashimi", "Takoyaki"], answer: "Yakitori" },
+            { question: "Which of these is a common Japanese fruit?", options: ["Apple", "Orange", "Persimmon", "Banana"], answer: "Persimmon" },
+            { question: "What is the Japanese name for a mandarin orange?", options: ["Mikan", "Yuzu", "Ringo", "Sakura"], answer: "Mikan" },
+            { question: "Which fruit is known as ringo in Japanese?", options: ["Apple", "Pear", "Grape", "Melon"], answer: "Apple" },
+            { question: "What is a kaki in Japanese?", options: ["Apple", "Persimmon", "Peach", "Cherry"], answer: "Persimmon" },
+            { question: "Which flower is known as sakura in Japanese?", options: ["Chrysanthemum", "Orchid", "Cherry Blossom", "Camellia"], answer: "Cherry Blossom" },
+            { question: "What is the Japanese word for cat?", options: ["Inu", "Neko", "Tori", "Uma"], answer: "Neko" },
+            { question: "What is the Japanese word for January?", options: ["Shigatsu", "Ichigatsu", "Nigatsu", "Kugatsu"], answer: "Ichigatsu" },
+            { question: "Which month is Gogatsu in Japanese?", options: ["May", "August", "March", "December"], answer: "May" },
+            { question: "What season does haru refer to in Japanese?", options: ["Winter", "Summer", "Spring", "Autumn"], answer: "Spring" },
+            { question: "What is natsu in English?", options: ["Autumn", "Winter", "Summer", "Spring"], answer: "Summer" },
+            { question: "What is the Japanese word for teacher?", options: ["Sensei", "Gakusei", "Kaishain", "Isha"], answer: "Sensei" },
+            { question: "What is a kaishain in Japanese?", options: ["Doctor", "Company Employee", "Teacher", "Chef"], answer: "Company Employee" },
+            { question: "Which profession is isha in Japanese?", options: ["Nurse", "Engineer", "Doctor", "Lawyer"], answer: "Doctor" },
+            { question: "What is the Japanese word for artist?", options: ["Shokunin", "Geijutsuka", "Kenkyusha", "Kangoshi"], answer: "Geijutsuka" },
+            { question: "What is the Japanese word for father?", options: ["Haha", "Chichi", "Ani", "Imoto"], answer: "Chichi" },
+            { question: "What is ani in Japanese?", options: ["Sister", "Brother", "Uncle", "Cousin"], answer: "Brother" },
+            { question: "Which word means younger sister in Japanese?", options: ["Ane", "Ototo", "Imoto", "Haha"], answer: "Imoto" },
+            { question: "What relation does obaasan refer to in Japanese?", options: ["Aunt", "Sister", "Grandmother", "Mother"], answer: "Grandmother" },
+            { question: "Which word refers to uncle in Japanese?", options: ["Oji", "Oba", "Chichi", "Sofu"], answer: "Oji" },
+            { question: "What is raion in English?", options: ["Elephant", "Lion", "Tiger", "Giraffe"], answer: "Lion" },
+            { question: "Which Japanese dish is made of deep-fried vegetables or seafood?", options: ["Soba", "Tempura", "Sashimi", "Yakitori"], answer: "Tempura" },
+            { question: "What does oba mean in Japanese?", options: ["Grandmother", "Aunt", "Sister", "Cousin"], answer: "Aunt" },
+            { question: "What is the Japanese word for grandfather?", options: ["Baba", "Jiji", "Sobo", "Sofu"], answer: "Sofu" },
+        ];
+
+        let currentQuestionIndex = 0;
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const submitBtn = document.getElementById('submit-btn');
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = '';
+            currentQuestion.options.forEach(option => {
+                const li = document.createElement('li');
+                li.textContent = option;
+                li.addEventListener('click', () => selectOption(li, currentQuestion.answer));
+                optionsElement.appendChild(li);
+            });
+        }
+
+        function selectOption(selectedOption, correctAnswer) {
+            const options = optionsElement.querySelectorAll('li');
+            options.forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+                option.style.pointerEvents = 'none';
+                if (option.textContent === correctAnswer) {
+                    option.classList.add('correct');
+                }
+            });
+            if (selectedOption.textContent !== correctAnswer) {
+                selectedOption.classList.add('incorrect');
+            }
+            submitBtn.style.display = 'block';
+        }
+
+        submitBtn.addEventListener('click', () => {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+                submitBtn.style.display = 'none';
+            } else {
+                // Handle end of quiz (optional: can show result here)
+                alert("Quiz completed!わかった！Wakatta!");
+            }
+        });
+
+        loadQuestion();
+    </script>
+</body>
+</html>

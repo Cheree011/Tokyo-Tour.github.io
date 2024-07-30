@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="Website icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #ee7e97;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .menu {
+            width: 250px;
+            height: 100vh;
+            background-color: #a30e3b;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 70px 20px 20px;
+            box-sizing: border-box;
+        }
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .menu-list li {
+            position: relative;
+        }
+        .menu-list li a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 250ms;
+            z-index: 2;
+        }
+        .menu-list:hover > li a:not(:hover) {
+            opacity: 0.3;
+        }
+        .menu-list li a::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 5vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 500px;
+            z-index: -1;
+            color: hsla(0, 0%, 0%, 0.496);
+            opacity: 0;
+            transition: 0.5s ease;
+            pointer-events: none;
+        }
+        .menu-list li a:hover::before {
+            opacity: 1;
+            letter-spacing: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 27px;
+        }
+        nav ul li a {
+            color: #fff; /* Text color for navigation links */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Adjust font size */
+            padding-bottom: 10px; /* Space for underline effect */
+            position: relative; /* Required for underline effect */
+            transition: all 0.5s; /* Smooth transition */
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0;
+            background: #000000;
+            height: 1px;
+            transition: all 0.5s;
+        }
+        nav ul li a:hover {
+            color: #000000;
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 100px 20px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            color: rgb(0, 0, 0);
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .character-section {
+            margin: 20px 0;
+        }
+        .character-card {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e6f7ff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .character-card h3 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .character-card p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .parts-of-speech {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e6f7ff;
+            border-left: 6px solid #12a75b;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .parts-of-speech h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #12a75b;
+        }
+        .parts-of-speech h3 {
+            font-size: 1.5rem;
+            color: #12a75b;
+        }
+        .parts-of-speech p {
+            font-size: 1rem;
+            color: #333;
+        }
+        .parts-of-speech ul {
+            list-style: none;
+            padding: 0;
+        }
+        .parts-of-speech li {
+            margin-bottom: 10px;
+        }
+
+        /* coolBeans button style */
+        .coolBeans {
+            border: 2px solid currentColor;
+            border-radius: 1.5rem;
+            color:#a30e3b;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 30;
+            overflow: hidden;
+            padding: 0.5rem 1rem;
+            position: relative;
+            text-decoration: none;
+            transition: .2s transform ease-in-out;
+            will-change: transform;
+            z-index: 0;
+            display: inline-block;
+        }
+
+        .coolBeans::after {
+            background-color:#ff004cbd;
+            border-radius: 1.5rem;
+            content: '';
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: translate(-100%, 0) rotate(10deg);
+            transform-origin: top left;
+            transition: .2s transform ease-out;
+            will-change: transform;
+            z-index: -1;
+        }
+
+        .coolBeans:hover::after {
+            transform: translate(0, 0);
+        }
+
+        .coolBeans:hover {
+            border: 2px solid transparent;
+            color:#ffffff;
+            transform: scale(1.05);
+            will-change: transform;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor </h1>
+        <nav>
+            <ul>
+                <li><a href="home(2).html">Home</a></li>
+                <li><a href="https://translate.google.co.jp/?hl=en&sl=en&tl=ja&op=translate">Translate 🔍</a></li>
+                <li><a href="anime(15).html">Anime</a></li>
+                <li><a href="quiz(16).html">Quiz</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+    <div class="menu">
+        <ul class="menu-list">
+            <li><a href="alphabets(3).html" data-text="Alphabets">Alphabets</a></li>
+            <li><a href="numbers(4).html" data-text="Numbers">Numbers</a></li>
+            <li><a href="professionrelation(5).html" data-text="Profession Relations">Profession and Relations</a></li>
+            <li><a href="monthseason(6).html" data-text="Months Seasons">Months and Seasons</a></li>
+            <li><a href="nature(7).html" data-text="Nature">Nature</a></li>
+            <li><a href="food(8).html" data-text="Food">Food</a></li>
+            <li><a href="country(9).html" data-text="Country">Country</a></li>
+            <li><a href="greetings(10).html" data-text="Greetings">Greetings</a></li>
+            <li><a href="home(2).html" data-text="Part of Speech">Part of Speech</a></li>
+            <li><a href="grammartips(12).html" data-text="Grammar Tips">Grammar Tips</a></li>
+            <li><a href="conversation(13).html" data-text="Conversation">Conversation</a></li>
+            <li><a href="response(14).html" data-text="Response">Response</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Parts of Speech </h1>
+        <div class="parts-of-speech">
+            <p>In Japanese, parts of speech are classified similarly to those in English, but there are some unique categories due to the nature of the language. Here are the main parts of speech in Japanese:</p>
+            
+            <h3>1. 名詞 (めいし, Meishi) - Nouns</h3>
+            <p><em>Examples:</em> 車 (くるま, kuruma - car), 犬 (いぬ, inu - dog), 本 (ほん, hon - book)</p>
+            <a href="noun(17).html" class="coolBeans">Learn more</a><br>
+           
+            <hr><h3>2. 代名詞 (だいめいし, Daimeishi) - Pronouns</h3>
+            <p><em>Examples:</em> 私 (わたし, watashi - I), あなた (anata - you), 彼 (かれ, kare - he), 彼女 (かのじょ, kanojo - she)</p>
+            <a href="pronoun(18).html" class="coolBeans">Learn more</a>
+            
+            <hr><h3>3. 動詞 (どうし, Dōshi) - Verbs</h3>
+            <p><em>Examples:</em> 食べる (たべる, taberu - to eat), 行く (いく, iku - to go), 見る (みる, miru - to see)</p>
+            <a href="verb(19).html" class="coolBeans">Learn more</a>
+            
+            <hr><h3>4. 形容詞 (けいようし, Keiyōshi) - Adjectives</h3>
+            <ul>
+                <li>い形容詞 (いけいようし, i-keiyōshi): Adjectives ending in "-i"
+                    <p><em>Examples:</em> 高い (たかい, takai - high/tall), 美しい (うつくしい, utsukushii - beautiful)</p>
+                </li>
+                <li>な形容詞 (なけいようし, na-keiyōshi): Adjectives that use "-na" when modifying nouns
+                    <p><em>Examples:</em> 静か (しずか, shizuka - quiet), 便利 (べんり, benri - convenient)</p>
+                </li>
+            </ul>
+            <a href="adjective(20).html" class="coolBeans">Lern more</a>
+            <hr><h3>5. 副詞 (ふくし, Fukushi) - Adverbs</h3>
+            <p><em>Examples:</em> 早く (はやく, hayaku - quickly), とても (totemo - very), 時々 (ときどき, tokidoki - sometimes)</p>
+            <a href="adverb(21).html" class="coolBeans">Lern more</a>
+            
+            <hr><h3>6. 連体詞 (れんたいし, Rentaishi) - Pre-noun Adjectival</h3>
+            <p><em>Examples:</em> 大きな (おおきな, ōkina - big), 小さな (ちいさな, chiisana - small)</p>
+            
+            <hr><h3>7. 接続詞 (せつぞくし, Setsuzokushi) - Conjunctions</h3>
+            <p><em>Examples:</em> そして (soshite - and), しかし (shikashi - however), また (mata - also)</p>
+<a href="conjuction(22).html" class="coolBeans">Learn more</a>            
+            <hr><h3>8. 助詞 (じょし, Joshi) - Particles</h3>
+            <p><em>Examples:</em> は (wa - topic marker), が (ga - subject marker), を (o - object marker), に (ni - direction/indirect object marker)</p>
+            
+            <hr><h3>9. 感動詞 (かんどうし, Kandōshi) - Interjections</h3>
+            <p><em>Examples:</em> ああ (ā - ah), こんにちは (konnichiwa - hello), ありがとう (arigatou - thank you)</p>
+            <a href="interjection(23).html" class="coolBeans">Learn more</a>
+            
+            <hr><h3>10. 助動詞 (じょどうし, Jodōshi) - Auxiliary Verbs</h3>
+            <p><em>Examples:</em> です (desu - polite copula), ます (masu - polite suffix for verbs), たい (tai - desire suffix for verbs)</p>
+            
+            <h3>Detailed Explanation of Some Key Parts of Speech</h3>
+            
+            <hr><h4>Verbs (動詞)</h4>
+            <p>Verbs in Japanese are inflected to show tense, mood, and aspect. They are divided into three groups:</p>
+            <ul>
+                <li>Group 1 (五段動詞, Godan Dōshi): U-verbs, where the ending vowel changes in conjugation.
+                    <p><em>Example:</em> 書く (かく, kaku - to write)</p>
+                </li>
+                <li>Group 2 (一段動詞, Ichidan Dōshi): Ru-verbs, where the ending "-ru" is dropped in conjugation.
+                    <p><em>Example:</em> 食べる (たべる, taberu - to eat)</p>
+                </li>
+                <li>Group 3 (不規則動詞, Fukisoku Dōshi): Irregular verbs.
+                    <p><em>Example:</em> する (suru - to do), 来る (くる, kuru - to come)</p>
+                </li>
+            </ul>
+            
+            <hr><h4>Adjectives (形容詞)</h4>
+            <p>Adjectives are either い-adjectives or な-adjectives:</p>
+            <ul>
+                <li>い-adjectives (い形容詞): End in "-i" and are conjugated like verbs.
+                    <p><em>Example:</em> 新しい (あたらしい, atarashii - new)</p>
+                </li>
+                <li>な-adjectives (な形容詞): Use "na" when directly modifying a noun.
+                    <p><em>Example:</em> 静か (しずか, shizuka - quiet)</p>
+                </li>
+            </ul>
+            
+            <hr><h4>Particles (助詞)</h4>
+            <p>Particles are essential in Japanese sentences to indicate the grammatical function of words. Common particles include:</p>
+            <ul>
+                <li>は (wa): Marks the topic of the sentence.
+                    <p><em>Example:</em> 私は学生です (わたしはがくせいです, watashi wa gakusei desu - I am a student)</p>
+                </li>
+                <li>が (ga): Marks the subject of the sentence.
+                    <p><em>Example:</em> 猫が好きです (ねこがすきです, neko ga suki desu - I like cats)</p>
+                </li>
+                <li>を (o): Marks the direct object of the verb.
+                    <p><em>Example:</em> 本を読みます (ほんをよみます, hon o yomimasu - I read a book)</p>
+                </li>
+                <li>に (ni): Indicates the direction or the indirect object.
+                    <p><em>Example:</em> 学校に行きます (がっこうにいきます, gakkou ni ikimasu - I go to school)</p>
+                </li>
+            </ul>
+            
+           <hr> <p>Understanding these parts of speech and their usage is crucial for mastering Japanese grammar and sentence construction.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="Website icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+
+    <style>
+ body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #ee7e97;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .menu {
+            width: 250px;
+            height: 100vh;
+            background-color: #a30e3b;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 70px 20px 20px;
+            box-sizing: border-box;
+        }
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .menu-list li {
+            position: relative;
+        }
+        .menu-list li a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 250ms;
+            z-index: 2;
+        }
+        .menu-list:hover > li a:not(:hover) {
+            opacity: 0.3;
+        }
+        .menu-list li a::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 5vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 500px;
+            z-index: -1;
+            color: hsla(0, 0%, 0%, 0.496);
+            opacity: 0;
+            transition: 0.5s ease;
+            pointer-events: none;
+        }
+        .menu-list li a:hover::before {
+            opacity: 1;
+            letter-spacing: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 27px;
+        }
+        nav ul li a {
+            color: #fff; /* Text color for navigation links */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Adjust font size */
+            padding-bottom: 10px; /* Space for underline effect */
+            position: relative; /* Required for underline effect */
+            transition: all 0.5s; /* Smooth transition */
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0;
+            background: #000000;
+            height: 1px;
+            transition: all 0.5s;
+        }
+        nav ul li a:hover {
+            color: #000000;
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .content {
+            margin-left: 270px;
+            padding: 100px 20px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            color: rgb(0, 0, 0);
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .character-section {
+            margin: 20px 0;
+        }
+        .character-card {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e6f7ff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .character-card h3 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .character-card p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .food-section {
+            margin-top: 20px;
+        }
+        .food-section h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .food-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .food-section ul li {
+            font-size: 1.2rem;
+            color: #555;
+            padding: 5px 0;
+        }
+        .food-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #FF69B4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor </h1>
+        <nav>
+            <ul>
+                <li><a href="home(2).html">Home</a></li>
+                <li><a href="https://translate.google.co.jp/?hl=en&sl=en&tl=ja&op=translate">Translate 🔍</a></li>
+                <li><a href="anime(15).html">Anime</a></li>
+                <li><a href="quiz(16).html">Quiz</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+    <div class="menu">
+        <ul class="menu-list">
+            <li><a href="alphabets(3).html" data-text="Alphabets">Alphabets</a></li>
+            <li><a href="numbers(4).html" data-text="Numbers">Numbers</a></li>
+            <li><a href="professionrelation(5).html" data-text="Profession Relations">Profession and Relations</a></li>
+            <li><a href="monthseason(6).html" data-text="Months Seasons">Months and Seasons</a></li>
+            <li><a href="nature(7).html" data-text="Nature">Nature</a></li>
+            <li><a href="home(2).html" data-text="Food">Food</a></li>
+            <li><a href="country(9).html" data-text="Country">Country</a></li>
+            <li><a href="greetings(10).html" data-text="Greetings">Greetings</a></li>
+            <li><a href="partofspeech(11).html" data-text="Part of Speech">Part of Speech</a></li>
+            <li><a href="grammartips(12).html" data-text="Grammar Tips">Grammar Tips</a></li>
+            <li><a href="conversation(13).html" data-text="Conversation">Conversation</a></li>
+            <li><a href="response(14).html" data-text="Response">Response</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="container">
+        <div class="food-section">
+            <h2>Food</h2>
+
+            <ul>
+
+                <li style="text-align: left;">&#10086; ご飯 (ごはん, Gohan) - Rice</li>
+                <li style="text-align: left;">&#10086; 魚 (さかな, Sakana) - Fish</li>
+                <li style="text-align: left;">&#10086; 肉 (にく, Niku) - Meat</li>
+                <li style="text-align: left;">&#10086; 野菜 (やさい, Yasai) - Vegetables</li>
+                <li style="text-align: left;">&#10086; 果物 (くだもの, Kudamono) - Fruit</li>
+                <li style="text-align: left;">&#10086; 鶏肉 (とりにく, Toriniku) - Chicken</li>
+                <li style="text-align: left;">&#10086; 牛肉 (ぎゅうにく, Gyuuniku) - Beef</li>
+                <li style="text-align: left;">&#10086; 豚肉 (ぶたにく, Butaniku) - Pork</li>
+                <li style="text-align: left;">&#10086; うどん (Udon) - Udon (thick wheat noodles)</li>
+                <li style="text-align: left;">&#10086; そば (Soba) - Soba (buckwheat noodles)</li>
+                <li style="text-align: left;">&#10086; 天ぷら (てんぷら, Tempura) - Tempura (battered and deep-fried seafood/vegetables)</li>
+                <li style="text-align: left;">&#10086; 寿司 (すし, Sushi) - Sushi</li>
+                <li style="text-align: left;">&#10086; 刺身 (さしみ, Sashimi) - Sashimi (sliced raw fish)</li>
+                <li style="text-align: left;">&#10086; みそ汁 (みそしる, Miso Shiru) - Miso Soup</li>
+                <li style="text-align: left;">&#10086; 味噌 (みそ, Miso) - Miso (fermented soybean paste)</li>
+                <li style="text-align: left;">&#10086; 餃子 (ぎょうざ, Gyoza) - Gyoza (dumplings)</li>
+                <li style="text-align: left;">&#10086; 焼き鳥 (やきとり, Yakitori) - Yakitori (grilled chicken skewers)</li>
+                <li style="text-align: left;">&#10086; たこ焼き (たこやき, Takoyaki) - Takoyaki (octopus balls)</li>
+                <li style="text-align: left;">&#10086; お好み焼き (おこのみやき, Okonomiyaki) - Okonomiyaki (savory pancake)</li>
+                <li style="text-align: left;">&#10086; 鍋 (なべ, Nabe) - Nabe (hot pot)</li>
+                <li style="text-align: left;">&#10086; 焼肉 (やきにく, Yakiniku) - Yakiniku (grilled meat)</li>
+                <li style="text-align: left;">&#10086; ラーメン (Ramen) - Ramen (noodle soup)</li>
+                <li style="text-align: left;">&#10086; おにぎり (Onigiri) - Onigiri (rice ball)</li>
+                <li style="text-align: left;">&#10086; 唐揚げ (からあげ, Karaage) - Karaage (fried chicken)</li>
+                <li style="text-align: left;">&#10086; 茶碗蒸し (ちゃわんむし, Chawanmushi) - Chawanmushi (savory egg custard)</li>
+                <li style="text-align: left;">&#10086; 豆腐 (とうふ, Tofu) - Tofu</li>
+                <li style="text-align: left;">&#10086; 漬物 (つけもの, Tsukemono) - Pickles</li>
+                <li style="text-align: left;">&#10086; うなぎ (Unagi) - Eel</li>
+                <li style="text-align: left;">&#10086; 焼きそば (やきそば, Yakisoba) - Yakisoba (fried noodles)</li>
+<li style="text-align: left;">&#10086; しゃぶしゃぶ (Shabu-shabu) - Shabu-shabu (hot pot)</li>
+<li style="text-align: left;">&#10086; カレーライス (Curry Rice) - Japanese Curry with Rice</li>
+<li style="text-align: left;">&#10086; そば (Soba) - Buckwheat noodles</li>
+<li style="text-align: left;">&#10086; 梅干し (うめぼし, Umeboshi) - Pickled Plum</li>
+<li style="text-align: left;">&#10086; 茶漬け (ちゃづけ, Chazuke) - Rice with green tea</li>
+<li style="text-align: left;">&#10086; 月見 (つきみ, Tsukimi) - Moon viewing (often refers to a dish with a raw egg)</li>
+<li style="text-align: left;">&#10086; 納豆 (なっとう, Natto) - Fermented Soybeans</li>
+<li style="text-align: left;">&#10086; 天丼 (てんどん, Tendon) - Tempura Rice Bowl</li>
+<li style="text-align: left;">&#10086; かつ丼 (かつどん, Katsudon) - Pork Cutlet Rice Bowl</li>
+<li style="text-align: left;">&#10086; 親子丼 (おやこどん, Oyakodon) - Chicken and Egg Rice Bowl</li>
+<li style="text-align: left;">&#10086; すき焼き (Sukiyaki) - Sukiyaki (hot pot with thinly sliced beef)</li>
+                
+            </ul>
+</div>
+</div>
+    </div>
+</body>
+</html>

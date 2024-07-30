@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tokyo Tutor</title>
+
+    <link rel="Website icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+
+
+    <style>
+         body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #ee7e97;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .menu {
+            width: 250px;
+            height: 100vh;
+            background-color: #a30e3b;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 70px 20px 20px;
+            box-sizing: border-box;
+        }
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .menu-list li {
+            position: relative;
+        }
+        .menu-list li a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 250ms;
+            z-index: 2;
+        }
+        .menu-list:hover > li a:not(:hover) {
+            opacity: 0.3;
+        }
+        .menu-list li a::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 5vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 500px;
+            z-index: -1;
+            color: hsla(0, 0%, 0%, 0.496);
+            opacity: 0;
+            transition: 0.5s ease;
+            pointer-events: none;
+        }
+        .menu-list li a:hover::before {
+            opacity: 1;
+            letter-spacing: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 27px;
+        }
+        nav ul li a {
+            color: #fff; /* Text color for navigation links */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Adjust font size */
+            padding-bottom: 10px; /* Space for underline effect */
+            position: relative; /* Required for underline effect */
+            transition: all 0.5s; /* Smooth transition */
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0;
+            background: #000000;
+            height: 1px;
+            transition: all 0.5s;
+        }
+        nav ul li a:hover {
+            color: #000000;
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .content {
+            margin-left: 270px;
+            padding: 100px 20px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            color: rgb(0, 0, 0);
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .character-section {
+            margin: 20px 0;
+        }
+        .character-card {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e6f7ff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .character-card h3 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .character-card p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .fruits,.flowers,.animals {
+
+            font-size: 1.8rem;
+
+            color: #333;
+
+        }
+
+        .fruits,.flowers,.animals  {
+
+            list-style: none;
+
+            padding: 0;
+
+            margin: 10px 0;
+
+        }
+
+        .fruits,.flowers,.animals  {
+
+            font-size: 1.2rem;
+
+            color: #555;
+
+            padding: 5px 0;
+
+        }
+
+        .fruits,.flowers,.animals {
+
+            margin-top: 20px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor </h1>
+        <nav>
+            <ul>
+                <li><a href="home(2).html">Home</a></li>
+                <li><a href="https://translate.google.co.jp/?hl=en&sl=en&tl=ja&op=translate">Translate 🔍</a></li>
+                <li><a href="anime(15).html">Anime</a></li>
+                <li><a href="quiz(16).html">Quiz</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+    <div class="menu">
+
+        <ul class="menu-list">
+
+            <li><a href="alphabets(3).html" data-text="Alphabets">Alphabets</a></li>
+
+            <li><a href="numbers(4).html" data-text="Numbers">Numbers</a></li>
+
+            <li><a href="professionrelation(5).html" data-text="Profession Relations">Profession and Relations</a></li>
+
+            <li><a href="monthseason(6).html" data-text="Months Seasons">Months and Seasons</a></li>
+
+            <li><a href="home(2).html" data-text="Nature">Nature</a></li>
+
+            <li><a href="food(8).html" data-text="Food">Food</a></li>
+            <li><a href="country(9).html" data-text="Country">Country</a></li>
+
+
+            <li><a href="greetings(10).html" data-text="Greetings">Greetings</a></li>
+
+            <li><a href="partofspeech(11).html" data-text="Part of Speech">Part of Speech</a></li>
+
+            <li><a href="grammartips(12).html" data-text="Grammar Tips">Grammar Tips</a></li>
+
+            <li><a href="conversation(13).html" data-text="Conversation">Conversation</a></li>
+
+            <li><a href="response(14).html" data-text="Response">Response</a></li>
+        </ul>
+
+    </div>
+
+    <div class="content">
+
+        <div class="container">
+
+            <div class="fruits">
+
+                <h2>Fruits in Japanese</h2>
+
+                
+
+                    <li style="text-align: left;">&#10047;りんご (Ringo) - Apple</li>
+
+                    <li style="text-align: left;">&#10047;みかん (Mikan) - Mandarin Orange</li>
+
+                    <li style="text-align: left;">&#10047;バナナ (Banana) - Banana</li>
+
+                    <li style="text-align: left;">&#10047;ぶどう (Budou) - Grape</li>
+
+                    <li style="text-align: left;">&#10047;すいか (Suika) - Watermelon</li>
+
+                    <li style="text-align: left;">&#10047;いちご (Ichigo) - Strawberry</li>
+
+                    <li style="text-align: left;">&#10047;もも (Momo) - Peach</li>
+
+                    <li style="text-align: left;">&#10047;さくらんぼ (Sakuranbo) - Cherry</li>
+
+                    <li style="text-align: left;">&#10047;レモン (Remon) - Lemon</li>
+
+                    <li style="text-align: left;">&#10047;メロン (Meron) - Melon</li>
+
+                    <li style="text-align: left;">&#10047;キウイ (Kiui) - Kiwi</li>
+
+                    <li style="text-align: left;">&#10047;パイナップル (Painappuru) - Pineapple</li>
+
+                    <li style="text-align: left;">&#10047;オレンジ (Orenji) - Orange</li>
+
+                    <li style="text-align: left;">&#10047;なし (Nashi) - Pear (Asian pear)</li>
+
+                    <li style="text-align: left;">&#10047;柿 (かき, Kaki) - Persimmon</li>
+
+                    <li style="text-align: left;">&#10047;マンゴー (Mangou) - Mango</li>
+
+                    <li style="text-align: left;">&#10047;ぶるーべりー (Burūberī) - Blueberry</li>
+
+                    <li style="text-align: left;">&#10047;アボカド (Abokado) - Avocado</li>
+
+                    <li style="text-align: left;">&#10047;ココナッツ (Kokonattsu) - Coconut</li>
+
+                    <li style="text-align: left;">&#10047;ドリアン (Dorian) - Durian</li>
+
+                
+
+            </div>
+
+        </div>
+
+            <div class="container">
+
+
+            <div class="flowers">
+
+                <h1>Flowers in Japanese</h1>
+
+                
+
+                    <li style="text-align: left;">&#10047;桜 (さくら, Sakura) - Cherry Blossom</li>
+
+                    <li style="text-align: left;">&#10047;薔薇 (ばら, Bara) - Rose</li>
+
+                    <li style="text-align: left;">&#10047;百合 (ゆり, Yuri) - Lily</li>
+
+                    <li style="text-align: left;">&#10047;菊 (きく, Kiku) - Chrysanthemum</li>
+
+                    <li style="text-align: left;">&#10047;向日葵 (ひまわり, Himawari) - Sunflower</li>
+
+                    <li style="text-align: left;">&#10047;梅 (うめ, Ume) - Plum Blossom</li>
+
+                    <li style="text-align: left;">&#10047;紫陽花 (あじさい, Ajisai) - Hydrangea</li>
+
+                    <li style="text-align: left;">&#10047;菖蒲 (あやめ, Ayame) - Iris</li>
+
+                    <li style="text-align: left;">&#10047;芍薬 (しゃくやく, Shakuyaku) - Peony</li>
+
+                    <li style="text-align: left;">&#10047;蘭 (らん, Ran) - Orchid</li>
+
+                    <li style="text-align: left;">&#10047;朝顔 (あさがお, Asagao) - Morning Glory</li>
+
+                    <li style="text-align: left;">&#10047;水仙 (すいせん, Suisen) - Daffodil</li>
+
+                    <li style="text-align: left;">&#10047;桔梗 (ききょう, Kikyou) - Bellflower</li>
+
+                    <li style="text-align: left;">&#10047;藤 (ふじ, Fuji) - Wisteria</li>
+
+                    <li style="text-align: left;">&#10047;牡丹 (ぼたん, Botan) - Peony</li>
+
+                    <li style="text-align: left;">&#10047;菜の花 (なのはな, Nanohana) - Rapeseed Flower</li>
+
+                    <li style="text-align: left;">&#10047;矢車草 (やぐるまそう, Yagurumasou) - Cornflower</li>
+
+                    <li style="text-align: left;">&#10047;睡蓮 (すいれん, Suiren) - Water Lily</li>
+
+                    <li style="text-align: left;">&#10047;紅葉 (もみじ, Momiji) - Maple Leaf (often used for autumn leaves in general)</li>
+
+                    <li style="text-align: left;">&#10047;ポインセチア (Poinsettia) - Poinsettia</li>
+
+                    
+
+            </div>
+
+            </div>
+
+            <div class="container">
+
+        <div class="animals">
+
+            <h1>Animals in Japanese</h1>
+
+            
+
+                <li style="text-align: left;">&#10047;Dog - 犬 (いぬ, Inu)</li>
+
+                <li style="text-align: left;">&#10047;Cat - 猫 (ねこ, Neko)</li>
+
+                <li style="text-align: left;">&#10047;Bird - 鳥 (とり, Tori)</li>
+
+                <li style="text-align: left;">&#10047;Fish - 魚 (さかな, Sakana)</li>
+
+                <li style="text-align: left;">&#10047;Horse - 馬 (うま, Uma)</li>
+
+                <li style="text-align: left;">&#10047;Cow - 牛 (うし, Ushi)</li>
+
+                <li style="text-align: left;">&#10047;Sheep - 羊 (ひつじ, Hitsuji)</li>
+
+                <li style="text-align: left;">&#10047;Pig - 豚 (ぶた, Buta)</li>
+
+                <li style="text-align: left;">&#10047;Monkey - 猿 (さる, Saru)</li>
+
+                <li style="text-align: left;">&#10047;Elephant - 象 (ぞう, Zō)</li>
+
+                <li style="text-align: left;">&#10047;Tiger - 虎 (とら, Tora)</li>
+
+                <li style="text-align: left;">&#10047;Lion - ライオン (Raion)</li>
+
+                <li style="text-align: left;">&#10047;Rabbit - 兎 (うさぎ, Usagi)</li>
+
+                <li style="text-align: left;">&#10047;Bear - 熊 (くま, Kuma)</li>
+
+                <li style="text-align: left;">&#10047;Deer - 鹿 (しか, Shika)</li>
+
+                <li style="text-align: left;">&#10047;Wolf - 狼 (おおかみ, Ōkami)</li>
+
+                <li style="text-align: left;">&#10047;Fox - 狐 (きつね, Kitsune)</li>
+
+                <li style="text-align: left;">&#10047;Mouse - 鼠 (ねずみ, Nezumi)</li>
+
+                <li style="text-align: left;">&#10047;Frog - 蛙 (かえる, Kaeru)</li>
+
+                <li style="text-align: left;">&#10047;Snake - 蛇 (へび, Hebi)</li>
+
+            
+
+        </div>
+
+        </div>
+
+</body>
+
+</html>

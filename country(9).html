@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="Website icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #ee7e97;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .menu {
+            width: 250px;
+            height: 100vh;
+            background-color: #a30e3b;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 70px 20px 20px;
+            box-sizing: border-box;
+        }
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .menu-list li {
+            position: relative;
+        }
+        .menu-list li a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 250ms;
+            z-index: 2;
+        }
+        .menu-list:hover > li a:not(:hover) {
+            opacity: 0.3;
+        }
+        .menu-list li a::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 5vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 500px;
+            z-index: -1;
+            color: hsla(0, 0%, 0%, 0.496);
+            opacity: 0;
+            transition: 0.5s ease;
+            pointer-events: none;
+        }
+        .menu-list li a:hover::before {
+            opacity: 1;
+            letter-spacing: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 27px;
+        }
+        nav ul li a {
+            color: #fff; /* Text color for navigation links */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Adjust font size */
+            padding-bottom: 10px; /* Space for underline effect */
+            position: relative; /* Required for underline effect */
+            transition: all 0.5s; /* Smooth transition */
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0;
+            background: #000000;
+            height: 1px;
+            transition: all 0.5s;
+        }
+        nav ul li a:hover {
+            color: #000000;
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .content {
+            margin-left: 270px;
+            padding: 100px 20px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            color: rgb(0, 0, 0);
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .character-section {
+            margin: 20px 0;
+        }
+        .character-card {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e6f7ff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .character-card h3 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .character-card p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .food-section {
+            margin-top: 20px;
+        }
+        .food-section h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .food-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .food-section ul li {
+            font-size: 1.2rem;
+            color: #555;
+            padding: 5px 0;
+        }
+        .food-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #FF69B4;
+        }
+        .address-section {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .address-section h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .address-section p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+        .address-section .example {
+            font-size: 1rem;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor </h1>
+        <nav>
+            <ul>
+                <li><a href="home(2).html">Home</a></li>
+                <li><a href="https://translate.google.co.jp/?hl=en&sl=en&tl=ja&op=translate">Translate 🔍</a></li>
+                <li><a href="anime(15).html">Anime</a></li>
+                <li><a href="quiz(16).html">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="menu">
+        <ul class="menu-list">
+            <li><a href="alphabets(3).html" data-text="Alphabets">Alphabets</a></li>
+            <li><a href="numbers(4).html" data-text="Numbers">Numbers</a></li>
+            <li><a href="professionrelation(5).html" data-text="Profession Relations">Profession and Relations</a></li>
+            <li><a href="monthseason(6).html" data-text="Months Seasons">Months and Seasons</a></li>
+            <li><a href="nature(7).html" data-text="Nature">Nature</a></li>
+            <li><a href="food(8).html" data-text="Food">Food</a></li>
+            <li><a href="home(2).html" data-text="Country">Country</a></li>
+            <li><a href="greetings(10).html" data-text="Greetings">Greetings</a></li>
+            <li><a href="partofspeech(11).html" data-text="Part of Speech">Part of Speech</a></li>
+            <li><a href="grammartips(12).html" data-text="Grammar Tips">Grammar Tips</a></li>
+            <li><a href="conversation(13).html" data-text="Conversation">Conversation</a></li>
+            <li><a href="response(14).html" data-text="Response">Response</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div class="food-section">
+                <h2>Country names</h2>
+                <ul>
+                    <li  style="text-align: left;">&#9872; United States: アメリカ (Amerika)</li>
+                    <li  style="text-align: left;">&#9872; United Kingdom: イギリス (Igirisu)</li>
+                    <li  style="text-align: left;">&#9872; Canada: カナダ (Kanada)</li>
+                    <li  style="text-align: left;">&#9872; Australia: オーストラリア (Ōsutoraria)</li>
+                    <li  style="text-align: left;">&#9872; France: フランス (Furansu)</li>
+                    <li  style="text-align: left;">&#9872; Germany: ドイツ (Doitsu)</li>
+                    <li  style="text-align: left;">&#9872; Italy: イタリア (Itaria)</li>
+                    <li  style="text-align: left;">&#9872; Spain: スペイン (Supein)</li>
+                    <li  style="text-align: left;">&#9872; China: 中国 (Chūgoku)</li>
+                    <li  style="text-align: left;">&#9872; India: インド (Indo)</li>
+                    <li  style="text-align: left;">&#9872; Brazil: ブラジル (Burajiru)</li>
+                    <li  style="text-align: left;">&#9872; Russia: ロシア (Roshia)</li>
+                    <li  style="text-align: left;">&#9872; South Korea: 韓国 (Kankoku)</li>
+                    <li  style="text-align: left;">&#9872; Japan: 日本 (Nihon / Nippon)</li>
+                    <li  style="text-align: left;">&#9872; Mexico: メキシコ (Mekishiko)</li>
+                    <li  style="text-align: left;">&#9872; Argentina: アルゼンチン (Aruzenchin)</li>
+                    <li  style="text-align: left;">&#9872; Chile: チリ (Chiri)</li>
+                    <li  style="text-align: left;">&#9872; Peru: ペルー (Perū)</li>
+                    <li  style="text-align: left;">&#9872; Egypt: エジプト (Ejiputo)</li>
+                    <li  style="text-align: left;">&#9872; South Africa: 南アフリカ (Minami Afurika)</li>
+                    <li  style="text-align: left;">&#9872; Nigeria: ナイジェリア (Naijeria)</li>
+                    <li  style="text-align: left;">&#9872; Kenya: ケニア (Kenia)</li>
+                    <li  style="text-align: left;">&#9872; Saudi Arabia: サウジアラビア (Sauji Arabia)</li>
+                    <li  style="text-align: left;">&#9872; Turkey: トルコ (Toruko)</li>
+                    <li  style="text-align: left;">&#9872; Iran: イラン (Iran)</li>
+                    <li  style="text-align: left;">&#9872; Iraq: イラク (Iraku)</li>
+                    <li  style="text-align: left;">&#9872; Thailand: タイ (Tai)</li>
+                    <li  style="text-align: left;">&#9872; Vietnam: ベトナム (Betonamu)</li>
+                    <li  style="text-align: left;">&#9872; Indonesia: インドネシア (Indoneshia)</li>
+                    <li  style="text-align: left;">&#9872; Philippines: フィリピン (Firipin)</li>
+                    <li  style="text-align: left;">&#9872; New Zealand: ニュージーランド (Nyūjīrando)</li>
+                    <li  style="text-align: left;">&#9872; Pakistan: パキスタン (Pakisutan)</li>
+                </ul>
+            </div>
+            <hr>
+            <div class="address-section">
+                <h2>Writing an Address in Japanese</h2>
+                <p>Writing an address in Japanese follows a specific format, typically using the following structure:</p>
+                <ol>
+                    <li><strong>Recipient's Name (宛名)</strong>: Write the name of the recipient at the top.</li>
+                    <li><strong>Postal Code (郵便番号)</strong>: The postal code comes next, usually written in the format <code>123-4567</code>.</li>
+                    <li><strong>Prefecture (都道府県)</strong>: The name of the prefecture, city, town, or village.</li>
+                    <li><strong>City, Town, Village (市区町村)</strong>: This includes the city, town, or village name.</li>
+                    <li><strong>Street Name and Number (丁目番地)</strong>: The street name and building number.</li>
+                    <li><strong>Building Name and Apartment Number (建物名・部屋番号)</strong>: Include the building name, apartment number, or floor number if applicable.</li>
+                </ol>
+                <div class="example">
+                    <p><strong>Example Address Format</strong></p>
+                    <p>1. <strong>Recipient's Name</strong></p>
+                    <p>Example: 山田太郎 (Yamada Tarou)</p>
+                    <p>2. <strong>Postal Code</strong></p>
+                    <p>Example: 100-0001 (The postal code should be written in a way that it’s easily readable, often separated by a hyphen.)</p>
+                    <p>3. <strong>Prefecture and City</strong></p>
+                    <p>Example: 東京都 (Tokyo-to)</p>
+                    <p>4. <strong>District, Town, or Village</strong></p>
+                    <p>Example: 千代田区 (Chiyoda-ku)</p>
+                    <p>5. <strong>Street Name and Number</strong></p>
+                    <p>Example: 丸の内1-1-1 (Marunouchi 1-1-1)</p>
+                    <p>6. <strong>Building Name and Apartment Number</strong></p>
+                    <p>Example: 東京ビルディング 101 (Tokyo Building 101)</p>
+                </div>
+                <hr>
+                <div class="example">
+                    <p><strong>Complete Example Address</strong></p>
+                    <p>山田太郎 様<br>〒100-0001<br>東京都千代田区丸の内1-1-1<br>東京ビルディング 101</p>
+                </div>
+                <p><strong>Notes</strong></p>
+                <ul>
+                    <li><strong>Kanji and Katakana</strong>: Use kanji for the names of prefectures, cities, and districts, and katakana for foreign words and building names.</li>
+                    <li><strong>Spacing</strong>: Leave a space between each part of the address for clarity.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

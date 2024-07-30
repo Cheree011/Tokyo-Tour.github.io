@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="Website icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+
+    <style>
+         body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #ee7e97;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .menu {
+            width: 250px;
+            height: 100vh;
+            background-color: #a30e3b;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 70px 20px 20px;
+            box-sizing: border-box;
+        }
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .menu-list li {
+            position: relative;
+        }
+        .menu-list li a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 250ms;
+            z-index: 2;
+        }
+        .menu-list:hover > li a:not(:hover) {
+            opacity: 0.3;
+        }
+        .menu-list li a::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 5vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 500px;
+            z-index: -1;
+            color: hsla(0, 0%, 0%, 0.496);
+            opacity: 0;
+            transition: 0.5s ease;
+            pointer-events: none;
+        }
+        .menu-list li a:hover::before {
+            opacity: 1;
+            letter-spacing: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 27px;
+        }
+        nav ul li a {
+            color: #fff; /* Text color for navigation links */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Adjust font size */
+            padding-bottom: 10px; /* Space for underline effect */
+            position: relative; /* Required for underline effect */
+            transition: all 0.5s; /* Smooth transition */
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0;
+            background: #000000;
+            height: 1px;
+            transition: all 0.5s;
+        }
+        nav ul li a:hover {
+            color: #000000;
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .content {
+            margin-left: 270px;
+            padding: 100px 20px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            color: rgb(0, 0, 0);
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .character-section {
+            margin: 20px 0;
+        }
+        .character-section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .character-card {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #dbfdeb;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .character-card h3 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .character-card p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .hiragana, .katakana, .kanji {
+            font-size: 36px;
+            font-weight: bold;
+            color: #12a75b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor </h1>
+        <nav>
+            <ul>
+                <li><a href="home(2).html">Home</a></li>
+                <li><a href="https://translate.google.co.jp/?hl=en&sl=en&tl=ja&op=translate">Translate 🔍</a></li>
+                <li><a href="anime(15).html">Anime</a></li>
+                <li><a href="quiz(16).html">Quiz</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+    <div class="menu">
+        <ul class="menu-list">
+            <li><a href="home(2).html" data-text="Alphabets">Alphabets</a></li>
+            <li><a href="numbers(4).html" data-text="Numbers">Numbers</a></li>
+            <li><a href="professionrelation(5).html" data-text="Profession Relations">Profession and Relations</a></li>
+            <li><a href="monthseason(6).html" data-text="Months Seasons">Months and Seasons</a></li>
+            <li><a href="nature(7).html" data-text="Nature">Nature</a></li>
+            <li><a href="food(8).html" data-text="Food">Food</a></li>
+            <li><a href="country(9).html" data-text="Country">Country</a></li>
+            <li><a href="greetings(10).html" data-text="Greetings">Greetings</a></li>
+            <li><a href="partofspeech(11).html" data-text="Part of Speech">Part of Speech</a></li>
+            <li><a href="grammartips(12).html" data-text="Grammar Tips">Grammar Tips</a></li>
+            <li><a href="conversation(13).html" data-text="Conversation">Conversation</a></li>
+            <li><a href="response(14).html" data-text="Response">Response</a></li>
+
+        </ul>
+    </div>
+    <div class="content">
+        <div class="container">
+            <h1>Japanese Characters</h1>
+            <div class="character-section">
+                <h2>Hiragana</h2>
+                <div class="character-card">
+                    <div class="hiragana">あ</div>
+                    <h3>a</h3>
+                    <p>ah <br><a href="#" onclick="playAudio()"><i class="fas fa-volume-high"></i></a></p>
+                </div>
+                
+                <div class="character-card">
+                    <div class="hiragana">い</div>
+                    <h3>i</h3>
+                    <p>ee</p>
+                </div>
+                <div class="character-card">
+                    <div class="hiragana">う</div>
+                    <h3>u</h3>
+                    <p>oo</p>
+                </div>
+                <div class="character-card">
+                    <div class="hiragana"> え</div>
+                    <h3>e</h3>
+                    <p>ae</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">お </div>
+                    <h3>o</h3>
+                    <p>oh</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">か</div>
+                    <h3>ka</h3>
+                    <p>kah</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">き</div>
+                    <h3>ki</h3>
+                    <p>ke</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">く </div>
+                    <h3>ku</h3>
+                    <p>ko</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">け</div>
+                    <h3>ke</h3>
+                    <p>k</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">こ </div>
+                    <h3>ku</h3>
+                    <p>ko</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">さ</div>
+                    <h3>s</h3>
+                    <p>sa</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana"> し</div>
+                    <h3>she</h3>
+                    <p>shi</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">す</div>
+                    <h3>su</h3>
+                    <p>so</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">せ</div>
+                    <h3>se</h3>
+                    <p>sae</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">そ </div>
+                    <h3>so</h3>
+                    <p>suu</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana"> た </div>
+                    <h3>t</h3>
+                    <p>ta</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">ち</div>
+                    <h3>che</h3>
+                    <p>chi</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">つ</div>
+                    <h3>tsu</h3>
+                    <p>utsu</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">て</div>
+                    <h3>t</h3>
+                    <p>te</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">と </div>
+                    <h3>t</h3>
+                    <p>to</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">な</div>
+                    <h3>n</h3>
+                    <p>na</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">に</div>
+                    <h3>n</h3>
+                    <p>ni</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">ぬ</div>
+                    <h3>n</h3>
+                    <p>nu</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana"> ね</div>
+                    <h3>n</h3>
+                    <p>ne</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">の </div>
+                    <h3>n</h3>
+                    <p>no</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">は </div>
+                    <h3>h</h3>
+                    <p>ha</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">ひ</div>
+                    <h3>h</h3>
+                    <p>hi</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">ふ</div>
+                    <h3>f</h3>
+                    <p>fu</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana"> へ</div>
+                    <h3>h</h3>
+                    <p>he</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana"> ほ</div>
+                    <h3>h</h3>
+                    <p>ho</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">ま</div>
+                    <h3>m</h3>
+                    <p>ma</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana"> み</div>
+                    <h3>m</h3>
+                    <p>mi</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana"> む</div>
+                    <h3>m</h3>
+                    <p>mu</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">め</div>
+                    <h3>m</h3>
+                    <p>me</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">も</div>
+                    <h3>m</h3>
+                    <p>mo</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">や</div>
+                    <h3>y</h3>
+                    <p>ya</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">ゆ </div>
+                    <h3>y</h3>
+                    <p>yu</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">よ</div>
+                    <h3>y</h3>
+                    <p>yo</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">ら</div>
+                    <h3>r</h3>
+                    <p>ra</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">り</div>
+                    <h3>r</h3>
+                    <p>ri</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">る</div>
+                    <h3>r</h3>
+                    <p>ru</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">れ</div>
+                    <h3>r</h3>
+                    <p>re</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana"> ろ </div>
+                    <h3>r</h3>
+                    <p>ro</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">わ</div>
+                    <h3>w</h3>
+                    <p>wa</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">を</div>
+                    <h3>wo</h3>
+                    <p>oo</p>
+                </div>
+<div class="character-card">
+                    <div class="hiragana">ん</div>
+                    <h3>n</h3>
+                    <p>en</p>
+                </div>
+            </div>
+            <div class="character-section">
+                <h2>Katakana</h2>
+                <div class="character-card">
+                    <div class="katakana">ア</div>
+                    <h3>a</h3>
+                    <p>ah</p>
+                </div>
+                <div class="character-card">
+                    <div class="katakana">イ</div>
+                    <h3>i</h3>
+                    <p>ee</p>
+                </div>
+                <div class="character-card">
+                    <div class="katakana">ウ</div>
+                    <h3>u</h3>
+                    <p>oo</p>
+                </div>
+                <div class="character-card">
+                    <div class="katakana">エ</div>
+                    <h3>ii</h3>
+                    <p>ee</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">オ</div>
+                    <h3>o</h3>
+                    <p>oo</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">カ</div>
+                    <h3>k</h3>
+                    <p>ka</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">キ</div>
+                    <h3>ke</h3>
+                    <p>ki</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ク</div>
+                    <h3>ku</h3>
+                    <p>ko</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ケ</div>
+                    <h3>ke</h3>
+                    <p>kae</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">コ </div>
+                    <h3>ko</h3>
+                    <p>ku</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">サ </div>
+                    <h3>s</h3>
+                    <p>sa</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana"> シ</div>
+                    <h3>she</h3>
+                    <p>shi</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ス</div>
+                    <h3>su</h3>
+                    <p>so</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">セ</div>
+                    <h3>se</h3>
+                    <p>sae</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ソ</div>
+                    <h3>s</h3>
+                    <p>so</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">タ</div>
+                    <h3>t</h3>
+                    <p>ta</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">チ</div>
+                    <h3>chi</h3>
+                    <p>che</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ツ</div>
+                    <h3>tsu</h3>
+                    <p>utsu</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">テ</div>
+                    <h3>te</h3>
+                    <p>tae</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ト</div>
+                    <h3>to</h3>
+                    <p>tu</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ナ</div>
+                    <h3>na</h3>
+                    <p>nah</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ニ</div>
+                    <h3>ni</h3>
+                    <p>ne</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ヌ</div>
+                    <h3>nu</h3>
+                    <p>no</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ネ</div>
+                    <h3>ne</h3>
+                    <p>nae</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ノ</div>
+                    <h3>no</h3>
+                    <p>nu</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ハ</div>
+                    <h3>ha</h3>
+                    <p>hah</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ヒ</div>
+                    <h3>hi</h3>
+                    <p>he</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">フ</div>
+                    <h3>fu</h3>
+                    <p>fo</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ヘ</div>
+                    <h3>he</h3>
+                    <p>heh</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ホ</div>
+                    <h3>ho</h3>
+                    <p>hu</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">マ</div>
+                    <h3>ma</h3>
+                    <p>mah</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ミ</div>
+                    <h3>mi</h3>
+                    <p>me</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ム</div>
+                    <h3>mu</h3>
+                    <p>mo</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">メ</div>
+                    <h3>me</h3>
+                    <p>mae</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">モ</div>
+                    <h3>mo</h3>
+                    <p>mu</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ヤ</div>
+                    <h3>ya</h3>
+                    <p>yah</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ユ</div>
+                    <h3>yu</h3>
+                    <p>yu</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ヨ </div>
+                    <h3>yo</h3>
+                    <p>yu</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ラ</div>
+                    <h3>ra</h3>
+                    <p>rah</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">リ</div>
+                    <h3>ri</h3>
+                    <p>re</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ル</div>
+                    <h3>ru</h3>
+                    <p>ro</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">レ</div>
+                    <h3>re</h3>
+                    <p>rae</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ロ</div>
+                    <h3>ro</h3>
+                    <p>ru</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ワ</div>
+                    <h3>wa</h3>
+                    <p>wah</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ヲ</div>
+                    <h3>wo</h3>
+                    <p>oo</p>
+                </div>
+<div class="character-card">
+                    <div class="katakana">ン </div>
+                    <h3>n</h3>
+                    <p>en</p>
+                </div>
+            </div>
+            <div class="character-section">
+                <h2>Kanji</h2>
+                <div class="character-card">
+                    <div class="kanji">日</div>
+                    <h3>nichi</h3>
+                    <p>day</p>
+                </div>
+                <div class="character-card">
+                    <div class="kanji">本</div>
+                    <h3>hon</h3>
+                    <p>book</p>
+                </div>
+                <div class="character-card">
+                    <div class="kanji">人</div>
+                    <h3>jin</h3>
+                    <p>person</p>
+                </div>
+                <div class="character-card">
+                    <div class="kanji">月</div>
+                    <h3> tsuki, getsu, gatsu</h3>
+                    <p>moon, month</p>
+                </div>
+
+
+<div class="character-card">
+                    <div class="kanji">火</div>
+                    <h3>hi, ka</h3>
+                    <p>fire</p>
+                </div>
+<div class="character-card">
+                    <div class="kanji">水</div>
+                    <h3>mizu, sui
+</h3>
+                    <p>water</p>
+                </div>
+<div class="character-card">
+                    <div class="kanji">木 </div>
+                    <h3>ki, moku, boku
+</h3>
+                    <p>tree, wood</p>
+                </div>
+<div class="character-card">
+                    <div class="kanji">金 </div>
+                    <h3>kane , kin</h3>
+                    <p>gold, money</p>
+                </div>
+
+<div class="character-card">
+                    <div class="kanji">土 </div>
+                    <h3>tsuchi, do, to</h3>
+                    <p>earth, soil</p>
+                </div>
+<div class="character-card">
+                    <div class="kanji">大 </div>
+                    <h3>oo, dai, tai</h3>
+                    <p>big, large</p>
+                </div>
+<div class="character-card">
+                    <div class="kanji">小 </div>
+                    <h3>chi, shou</h3>
+                    <p>small</p>
+                </div>
+<div class="character-card">
+                    <div class="kanji">山 </div>
+                    <h3>yama, san</h3>
+                    <p>mountain</p>
+                </div>
+<div class="character-card">
+                    <div class="kanji">川 </div>
+                    <h3>kawa, sen</h3>
+                    <p>river</p>
+                </div>
+<div class="character-card">
+                    <div class="kanji">天 </div>
+                    <h3>ten</h3>
+                    <p>heaven, sky</p>
+                </div>
+<div class="character-card">
+                    <div class="kanji">学 </div>
+                    <h3>mana</h3>
+                    <p>gaku</p>
+                </div>
+<div class="character-card">
+                    <div class="kanji">校 </div>
+                    <h3>kou</h3>
+                    <p>school</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

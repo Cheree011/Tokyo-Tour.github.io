@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="Website icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+
+    <style>
+         body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #ee7e97;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 10px 20px;
+            justify-content: space-between;
+        }
+        header .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .menu {
+            width: 250px;
+            height: 100vh;
+            background-color: #a30e3b;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 70px 20px 20px;
+            box-sizing: border-box;
+        }
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .menu-list li {
+            position: relative;
+        }
+        .menu-list li a {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: 250ms;
+            z-index: 2;
+        }
+        .menu-list:hover > li a:not(:hover) {
+            opacity: 0.3;
+        }
+        .menu-list li a::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 5vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 500px;
+            z-index: -1;
+            color: hsla(0, 0%, 0%, 0.496);
+            opacity: 0;
+            transition: 0.5s ease;
+            pointer-events: none;
+        }
+        .menu-list li a:hover::before {
+            opacity: 1;
+            letter-spacing: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 27px;
+        }
+        nav ul li a {
+            color: #fff; /* Text color for navigation links */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Adjust font size */
+            padding-bottom: 10px; /* Space for underline effect */
+            position: relative; /* Required for underline effect */
+            transition: all 0.5s; /* Smooth transition */
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 0;
+            background: #000000;
+            height: 1px;
+            transition: all 0.5s;
+        }
+        nav ul li a:hover {
+            color: #000000;
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .content {
+            margin-left: 270px;
+            padding: 100px 20px 20px;
+        }
+        .content p {
+            font-size: 1.2rem;
+            color: rgb(0, 0, 0);
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .character-section {
+            margin: 20px 0;
+        }
+        .character-card {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e6f7ff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .character-card h3 {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .character-card p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .number{
+            font-size: 36px;
+            font-weight: bold;
+            color: #12a75b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #84ffe0;
+            color: white;
+        }
+        td {
+            background-color: #f9f9f9;
+        }
+        tr:nth-child(even) td {
+            background-color: #e6f7ff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" type="png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor </h1>
+        <nav>
+            <ul>
+                <li><a href="home(2).html">Home</a></li>
+                <li><a href="https://translate.google.co.jp/?hl=en&sl=en&tl=ja&op=translate">Translate 🔍</a></li>
+                <li><a href="anime(15).html">Anime</a></li>
+                <li><a href="quiz(16).html">Quiz</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+    <div class="menu">
+        <ul class="menu-list">
+            <li><a href="alphabets(3).html" data-text="Alphabets">Alphabets</a></li>
+            <li><a href="home(2).html" data-text="Numbers">Numbers</a></li>
+            <li><a href="professionrelation(5).html" data-text="Profession Relations">Profession and Relations</a></li>
+            <li><a href="monthseason(6).html" data-text="Months Seasons">Months and Seasons</a></li>
+            <li><a href="nature(7).html" data-text="Nature">Nature</a></li>
+            <li><a href="food(8).html" data-text="Food">Food</a></li>
+            <li><a href="country(9).html" data-text="Country">Country</a></li>
+            <li><a href="greetings(10).html" data-text="Greetings">Greetings</a></li>
+            <li><a href="partofspeech(11).html" data-text="Part of Speech">Part of Speech</a></li>
+            <li><a href="grammartips(12).html" data-text="Grammar Tips">Grammar Tips</a></li>
+            <li><a href="conversation(13).html" data-text="Conversation">Conversation</a></li>
+            <li><a href="response(14).html" data-text="Response">Response</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="container">
+            <h1>Japanese Numbers</h1>
+            <div class="character-section">
+                <div class="character-card">
+                    <div class="number">0</div>
+                    <h3>REI</h3>
+                    <p>ZERO</p>
+                </div>
+                <div class="character-card">
+                    <div class="number">1</div>
+                    <h3>ICHI</h3>
+                    <p>ONE</p>
+                </div>
+                <div class="character-card">
+                    <div class="number">2</div>
+                    <h3>NI</h3>
+                    <p>TWO</p>
+                </div>
+                <div class="character-card">
+                    <div class="number">3</div>
+                    <h3>SAN</h3>
+                    <p>THREE</p>
+                </div>
+                <div class="character-card">
+                    <div class="number">4</div>
+                    <h3>YON, SHI</h3>
+                    <p>FOUR</p>
+                </div>
+                <div class="character-card">
+                    <div class="number">5</div>
+                    <h3>GO</h3>
+                    <p>FIVE</p>
+                </div>
+                <div class="character-card">
+                    <div class="number">6</div>
+                    <h3>ROKU</h3>
+                    <p>SIX</p>
+                </div>
+                <div class="character-card">
+                    <div class="number">7</div>
+                    <h3>NANA ,SHICHI</h3>
+                    <p>SEVEN</p>
+                </div>
+                <div class="character-card">
+                    <div class="number">8</div>
+                    <h3>HACHI</h3>
+                    <p>EIGHT</p>
+                </div>
+                <div class="character-card">
+                    <div class="number">9</div>
+                    <h3>KYU,KU</h3>
+                    <p>NINE</p>
+                </div>
+                <div class="character-card">
+                    <div class="number">10</div>
+                    <h3>JU</h3>
+                    <p>TEN</p>
+                </div>
+                <div class="character-card">
+                    <div class="number">20</div>
+                    <h3>NIJUU</h3>
+                    <p>TWENTY</p>
+                </div>
+                <div class="character-card">
+                    <div class="number">30</div>
+                    <h3>SANJU</h3>
+                    <p>THIRTY</p>
+                </div>
+                <div class="character-card">
+                    <div class="number">40</div>
+                    <h3>SHIJUI , YONJUUOCHI</h3>
+                    <p>FORTY</p>
+                </div>
+                    <div class="character-card">
+                        <div class="number">50</div>
+                        <h3>GONJU</h3>
+                        <p>FIFTY</p>
+                    </div>
+                    <div class="character-card">
+                        <div class="number">60</div>
+                        <h3>ROKUJUU</h3>
+                        <p>SIXTY</p>
+                    </div>
+                    <div class="character-card">
+                        <div class="number">70</div>
+                        <h3>SHICHIJUU , NANAJUU</h3>
+                        <p>SEVENTY</p>
+                    </div>
+                    <div class="character-card">
+                        <div class="number">80</div>
+                        <h3>HACHIJUU</h3>
+                        <p>EIGHTY</p>
+                    </div>
+                    <div class="character-card">
+                        <div class="number">90</div>
+                        <h3>KYUUJUU</h3>
+                        <p>NINETY</p>
+                    </div>
+                    <div class="character-card">
+                        <div class="number">100</div>
+                        <h3>HYAKU</h3>
+                        <p>HUNDREAD</p>
+                    </div>
+            </div>
+<h1>Counters</h1>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                </tr>
+                <tr>
+                    <td>TSU(piece)</td>
+                    <td>HITOTSU</td>
+                    <td>FUTATSU</td>
+                    <td>MITTSU</td>
+                    <td>YOTTSU</td>
+                    <td>ITSUTSU</td>
+                </tr>
+                <tr>
+                    <td>KAI(floor)</td>
+                    <td>IKKAI</td>
+                    <td>NIKAI</td>
+                    <td>SANGAI</td>
+                    <td>YONKAI</td>
+                    <td>GOKAI</td>
+                </tr>
+                <tr>
+                    <td>FUN/PUN(minute)</td>
+                    <td>IPPUN</td>
+                    <td>NIFUN</td>
+                    <td>SANPUN</td>
+                    <td>YONPUN</td>
+                    <td>GOFUN</td>
+
+                </tr>
+                <tr>
+                    <td>SAI(year old)</td>
+                    <td>ISSAI</td>
+                    <td>NISAI</td>
+                    <td>SANSAI/td>
+                    <td>YONSAI</td>
+                    <td>GOSAI</td>
+                </tr>
+            </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Tutor</title>
+    <link rel="icon" type="image/png" href="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #ee7e97;
+            color: #fff;
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .home-icon {
+            position: absolute;
+            left: 60px;
+            color: white;
+            font-size: 24px;
+        }
+        .logo img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+            margin-right: 20px;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .quiz-container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+        .question {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .options li:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.02);
+        }
+        .options li.correct {
+            background-color: #d4edda; /* Light green */
+            border-color: #c3e6cb;
+        }
+        .options li.incorrect {
+            background-color: #f8d7da; /* Light red */
+            border-color: #f5c6cb;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #85a6ff;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .submit-btn:hover {
+            background-color: #a30e3b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="home(2).html" class="home-icon"><i class="fa fa-home">HOME</i></a>
+        <div class="logo">
+            <img src="c:\Users\Ragini Sunil Rane\Desktop\Assignment\tokyotutor\1000145976-removebg-preview.png" alt="Website Logo">
+        </div>
+        <h1>Tokyo Tutor</h1>
+    </header>
+    <div class="quiz-container">
+        <div class="question" id="question"></div>
+        <ul class="options" id="options"></ul>
+        <button class="submit-btn" id="submit-btn" style="display:none;">Next Question</button>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "What is the Hiragana character for the sound A ?",
+                options: ["ア","あ","エ","え"],
+                answer: "あ"
+            },
+            {
+                question: "What is the Katakana character for the sound Ka ?",
+                options: ["カ","か","キ","き"],
+                answer: "カ"
+            },
+            {
+                question: "What is the Kanji character for the number 3 ?",
+                options: ["一","二","三","四"],
+                answer: "三"
+            },
+            {
+                question: "What is the Japanese number for 7 ?",
+                options: ["しち", "なな", "ご", "きゅう"],
+                answer: "なな"
+            },
+            {
+                question: "What is the Hiragana character for the sound Su ?",
+                options: ["す", "し", "せ", "さ"],
+                answer: "す"
+            },
+            {
+                question: "What is the Katakana character for the sound Ko ?",
+                options: ["こ", "コ", "カ", "ケ"],
+                answer: "コ"
+            },
+            {
+                question: "What is the Kanji character for the number 5 ?",
+                options: ["五", "四", "六", "七"],
+                answer: "五"
+            },
+            {
+                question: "What is the Japanese number for 10 ?",
+                options: ["きゅう", "じゅう", "はち", "いち"],
+                answer: "じゅう"
+            },
+            {
+                question: "What is the Hiragana character for the sound Ne ?",
+                options: ["ね", "な", "に", "ぬ"],
+                answer: "ね"
+            },
+            {
+                question: "What is the Katakana character for the sound Ta ?",
+                options: ["た", "テ", "チ", "タ"],
+                answer: "タ"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const submitBtn = document.getElementById('submit-btn');
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = '';
+            currentQuestion.options.forEach(option => {
+                const li = document.createElement('li');
+                li.textContent = option;
+                li.addEventListener('click', () => selectOption(li, currentQuestion.answer));
+                optionsElement.appendChild(li);
+            });
+        }
+
+        function selectOption(selectedOption, correctAnswer) {
+            const options = optionsElement.querySelectorAll('li');
+            options.forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+                option.style.pointerEvents = 'none';
+                if (option.textContent === correctAnswer) {
+                    option.classList.add('correct');
+                }
+            });
+            if (selectedOption.textContent !== correctAnswer) {
+                selectedOption.classList.add('incorrect');
+            }
+            submitBtn.style.display = 'block';
+        }
+
+        submitBtn.addEventListener('click', () => {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+                submitBtn.style.display = 'none';
+            } else {
+                // Handle end of quiz (optional: can show result here)
+                alert("Quiz completed!わかった！Wakatta!");
+            }
+        });
+
+        loadQuestion();
+    </script>
+</body>
+</html>
